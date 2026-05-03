@@ -1,12 +1,14 @@
 ---
-import type { WithContext, Organization } from 'schema-dts';
+import type { WithContext, ProfessionalService } from 'schema-dts';
 
-const schema: WithContext<Organization> = {
+const schema: WithContext<ProfessionalService> = {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
+    '@type': ['LocalBusiness', 'ProfessionalService'],
+    '@id': 'https://infiniteroomlabs.com/#organization',
     name: 'Infinite Room Labs',
+    legalName: 'Infinite Room Labs LLC',
     url: 'https://infiniteroomlabs.com',
-    description: 'Solo technical consultancy. Legacy modernization, CI/CD rescue, infrastructure as code, MSP integration, agentic AI infrastructure.',
+    description: 'Solo technical consultancy. Legacy modernization, CI/CD rescue, infrastructure as code, MSP integration, agentic AI infrastructure. Paid discovery, written milestones, full IP transfer on completion.',
     founder: { '@type': 'Person', name: 'Wes Gilleland' },
     address: {
         '@type': 'PostalAddress',
@@ -14,7 +16,23 @@ const schema: WithContext<Organization> = {
         addressRegion: 'KY',
         addressCountry: 'US',
     },
-    areaServed: { '@type': 'State', name: 'Kentucky' },
+    areaServed: 'Worldwide',
+    priceRange: '$$',
+    contactPoint: {
+        '@type': 'ContactPoint',
+        email: 'wes@infiniteroomlabs.com',
+        contactType: 'sales',
+        availableLanguage: 'English',
+    },
+    knowsAbout: [
+        'Legacy system modernization',
+        'CI/CD pipeline rescue',
+        'Infrastructure as code',
+        'MSP integration consulting',
+        'Agentic AI infrastructure',
+        'Technical discovery and scoping',
+        'Software architecture and DevOps',
+    ],
 };
 ---
 <script type="application/ld+json" set:html={JSON.stringify(schema)} />

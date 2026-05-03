@@ -11,7 +11,7 @@ interface Props {
 
 const {
   title,
-  description = 'Solo technical consultancy out of Lexington, KY. Full site shipping Q3 2026. Email is the front door — wes@infiniteroomlabs.com.',
+  description = 'Solo technical consultancy in Lexington, KY — remote-friendly. Legacy modernization, CI/CD rescue, infrastructure as code, MSP integration, agentic AI infrastructure. Paid discovery, written milestones, full IP transfer on completion. wes@infiniteroomlabs.com',
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
@@ -31,7 +31,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
         basic: {
           title,
           type: 'website',
-          image: '/favicon.svg',
+          image: '/og-default.png',
           url: canonical,
         },
         optional: { siteName: 'Infinite Room Labs', description },

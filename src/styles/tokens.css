@@ -184,25 +184,30 @@
   --z-modal:       300;
 }
 
-*, *::before, *::after { box-sizing: border-box; }
+/* Layered base resets so Tailwind utilities (in @layer utilities) can win
+   over anchor/body color inheritance. Unlayered rules outrank all layers,
+   so any reset declared without `@layer base` would beat `.text-fg-1`. */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
 
-html, body {
-  margin: 0; padding: 0;
-  background: var(--bg);
-  color: var(--fg3);
-  font-family: var(--font-sans);
-  font-size: var(--fs-body);
-  line-height: var(--lh-body);
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--fg3);
+    font-family: var(--font-sans);
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
 
-a { color: inherit; text-decoration: none; }
-button { font: inherit; border: 0; cursor: pointer; background: none; color: inherit; }
-img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; border: 0; cursor: pointer; background: none; color: inherit; }
+  img { max-width: 100%; display: block; }
 
-:focus { outline: none; }
-:focus-visible {
-  outline: 2px solid var(--fg2);
-  outline-offset: 2px;
+  :focus { outline: none; }
+  :focus-visible {
+    outline: 2px solid var(--fg2);
+    outline-offset: 2px;
+  }
 }
