@@ -43,6 +43,16 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   is now self-contained Tailwind utilities; `.logo-combo` removed from
   `shell.css`.
 
+### 404 page
+- Added `src/pages/404.astro` — same chrome / hero shape as the splash so
+  unmatched routes land somewhere on-brand instead of CF's default error
+  page. SSR (`prerender = false`) so the punchline rotates per request
+  through a curated list of pithy nerd jokes ("Wrong room.", "Stack trace
+  ends here.", "Null pointer.", "Schrödinger's path.", "No such file or
+  directory.", etc.) — body copy adapts to match each punchline. Status
+  set explicitly to 404. Single CTA back to `/`, secondary mailto
+  reference to `hello@infiniteroomlabs.com`.
+
 ### Custom domains
 - `wrangler.jsonc` now attaches `infiniteroomlabs.com` and
   `www.infiniteroomlabs.com` as Worker Custom Domains via the `routes`

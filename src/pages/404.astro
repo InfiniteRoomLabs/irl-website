@@ -1,0 +1,143 @@
+---
+import SplashLayout from '../layouts/SplashLayout.astro';
+import LogoCombo from '../components/LogoCombo.astro';
+
+// Render fresh per request so the punchline rotates instead of locking at build time.
+export const prerender = false;
+
+Astro.response.status = 404;
+Astro.response.statusText = 'Not Found';
+
+interface Variation {
+  punchline: string;
+  body: string;
+}
+
+// Each variation is a pithy two-line H1 ending + a body that plays along.
+// Keep H1 punchlines short — Bebas Neue at clamp(72px,13vw,192px) eats space.
+const VARIATIONS: Variation[] = [
+  {
+    punchline: 'Wrong room.',
+    body: 'You followed a corridor that doesn&rsquo;t lead anywhere yet. The front door is still where you left it.',
+  },
+  {
+    punchline: 'Off the map.',
+    body: 'This path isn&rsquo;t part of the published site — at least not yet. Try the front door.',
+  },
+  {
+    punchline: 'Stack trace ends here.',
+    body: 'No frames above this one. Whatever called this URL is holding a reference to something that never shipped.',
+  },
+  {
+    punchline: 'Null pointer.',
+    body: 'The route exists in someone&rsquo;s memory, but not in this build. Probably a stale link or a path that got refactored.',
+  },
+  {
+    punchline: 'Orphaned route.',
+    body: 'No parent, no children, no handler. The URL bar is bookmarking a future that didn&rsquo;t happen.',
+  },
+  {
+    punchline: 'Cache miss.',
+    body: 'And not the kind that a revalidate fixes. There&rsquo;s nothing on origin to revalidate against.',
+  },
+  {
+    punchline: "Schrödinger's path.",
+    body: 'Until you opened it, this URL was both a real page and a 404. Now it&rsquo;s collapsed to the latter.',
+  },
+  {
+    punchline: 'Broken symlink.',
+    body: 'Pointed to something that used to exist. The target is long gone; only the dangling reference remains.',
+  },
+  {
+    punchline: 'Empty namespace.',
+    body: 'Namespace exists. Nothing in it. The full site is still being scaffolded — most routes won&rsquo;t resolve until it ships.',
+  },
+  {
+    punchline: 'No such file or directory.',
+    body: '`stat: cannot stat ‘' + (Astro.url?.pathname ?? '/') + '’: No such file or directory`. Head back to /.',
+  },
+  {
+    punchline: 'Page not in production.',
+    body: 'It might be on a feature branch. It might be on a whiteboard. Either way, it isn&rsquo;t here yet.',
+  },
+  {
+    punchline: 'Dangling reference.',
+    body: 'Whatever pointed at this URL is holding a reference the runtime can&rsquo;t resolve. Garbage-collect the bookmark.',
+  },
+];
+
+const variation = VARIATIONS[Math.floor(Math.random() * VARIATIONS.length)];
+---
+<SplashLayout
+  title="404 — Infinite Room Labs"
+  description="That page does not exist. Yet."
+>
+  <div class="splash flex flex-col min-h-screen bg-surface text-fg-3 font-sans antialiased">
+
+    <header class="bg-surface border-b border-rule shrink-0">
+      <div class="h-[3px] bg-gradient-bar"></div>
+      <div class="max-w-shell mx-auto w-full px-12 py-[18px] flex items-center gap-4 max-md:px-5 max-md:py-3.5">
+        <a href="/" class="inline-flex items-center no-underline">
+          <LogoCombo markSize={22} />
+        </a>
+        <span class="ml-auto font-mono text-[10px] tracking-eyebrow text-fg-muted uppercase max-md:hidden">
+          LEX, KY · ET
+        </span>
+      </div>
+    </header>
+
+    <main id="main" class="flex-1 flex flex-col">
+      <section class="relative flex-1 px-12 pt-20 pb-16 overflow-hidden flex flex-col max-md:px-5 max-md:pt-10 max-md:pb-8">
+        <div class="absolute inset-0 pointer-events-none bg-glow-red"></div>
+
+        <div class="relative max-w-shell mx-auto w-full flex-1 flex flex-col">
+
+          <div class="font-mono text-[11px] tracking-widest-2 text-fg-2 flex gap-4 items-center max-md:text-[10px] max-md:gap-2.5 max-md:flex-wrap uppercase">
+            <span class="block w-8 h-px bg-accent max-md:hidden" aria-hidden="true"></span>
+            <span>HTTP 404</span>
+            <span>·</span>
+            <span>Not found</span>
+          </div>
+
+          <h1 class="font-display font-normal text-fg-1 mt-7 leading-[0.86] tracking-[0.02em] uppercase text-balance text-[clamp(72px,13vw,192px)]">
+            <span class="text-accent">404.</span><br />
+            {variation.punchline}
+          </h1>
+
+          <div class="h-[3px] bg-gradient-bar mt-9 w-full"></div>
+
+          <div class="mt-9 grid grid-cols-2 gap-16 items-end flex-1 max-md:grid-cols-1 max-md:gap-7 max-md:items-stretch">
+            <p class="font-sans font-extralight text-[clamp(17px,1.5vw,22px)] leading-[1.45] text-fg-2 max-w-[56ch] m-0" set:html={variation.body} />
+
+            <div class="flex flex-col gap-3.5 items-end max-md:items-start">
+              <a
+                href="/"
+                class="inline-flex items-center gap-3.5 bg-accent hover:bg-accent-hover text-fg-1 font-sans font-semibold text-sm tracking-[0.04em] uppercase px-6 py-[18px] no-underline transition-colors duration-100 ease-standard max-md:w-full max-md:justify-between max-md:px-5 max-md:py-4"
+              >
+                Back to the splash
+                <span aria-hidden="true">→</span>
+              </a>
+              <span class="font-mono text-[11px] tracking-eyebrow uppercase text-fg-muted">
+                Or email hello@infiniteroomlabs.com
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-rule bg-surface mt-auto">
+      <div class="h-[3px] bg-gradient-bar"></div>
+      <div class="max-w-shell mx-auto w-full px-12 py-9 grid grid-cols-[auto_1fr_auto] gap-8 items-center max-md:grid-cols-1 max-md:gap-4 max-md:px-5 max-md:py-7">
+        <div class="font-display text-[22px] tracking-[0.16em] text-fg-1 uppercase leading-[1.05]">Infinite<br />Room Labs</div>
+        <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-fg-muted">Automate all the things.</div>
+        <div class="font-mono text-[11px] tracking-eyebrow uppercase text-fg-muted text-right leading-[1.6] max-md:text-left">
+          Infinite Room Labs LLC<br />
+          Lexington, KY · &copy; 2026
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</SplashLayout>
