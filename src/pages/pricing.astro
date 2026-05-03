@@ -1,0 +1,67 @@
+---
+import FullSiteLayout from '../layouts/FullSiteLayout.astro';
+import CTABlock from '../components/CTABlock.astro';
+import '../styles/pages.css';
+
+const rows = [
+  { name: 'Qualifying call', price: 'Free', what: '30 min, video, recorded, to determine mutual fit' },
+  { name: 'Discovery Sprint — 1 week', price: '$8,000', what: 'Full specification binder + Build SOW' },
+  { name: 'Discovery Sprint — 2 weeks', price: '$12,000–$15,000', what: 'Same, for larger or less-defined scope' },
+  { name: 'Technical Audit', price: 'From $4,000', what: 'Findings report + prioritized roadmap' },
+  { name: 'Rescue engagement', price: 'From $5,000', what: 'Assessment + recommendation path' },
+  { name: 'Implementation', price: 'Fixed per milestone', what: 'Defined in Build SOW from Discovery' },
+  { name: 'Fractional Lead', price: '$3,000–$5,000 / mo', what: '10–15 hours/month advisory' },
+  { name: 'Time & materials (change orders)', price: '$175 / hour', what: 'For scope additions beyond an active SOW' },
+];
+---
+<FullSiteLayout title="Pricing — Infinite Room Labs">
+  <main id="main" class="page-fade">
+    <section class="s-page-head">
+      <div class="s-page-head__glow"></div>
+      <div class="irl-container s-page-head__inner">
+        <div class="s-page-head__eyebrow">Pricing</div>
+        <h1 class="s-page-head__title">Published prices.<br />No surprises.</h1>
+        <p class="s-page-head__sub">
+          Most consultancies make you book a call to learn what things cost so they can price-discriminate. <strong>I don&rsquo;t.</strong>
+        </p>
+      </div>
+    </section>
+
+    <div class="irl-container">
+      <section class="pricing-table">
+        <div class="pricing-row head">
+          <span>Offering</span>
+          <span>Price</span>
+          <span>What you get</span>
+        </div>
+        {rows.map((r) => (
+          <div class="pricing-row">
+            <span class="pricing-row__name">{r.name}</span>
+            <span class="pricing-row__price">{r.price}</span>
+            <span class="pricing-row__what">{r.what}</span>
+          </div>
+        ))}
+      </section>
+
+      <section class="pricing-why">
+        <div>
+          <div class="s-eyebrow">Why publish prices?</div>
+          <h2 class="s-h2" style="margin-top: 12px;">The alternative<br />is a game.</h2>
+        </div>
+        <div class="s-prose">
+          <p>Because the alternative — <strong>&ldquo;contact us for pricing&rdquo;</strong> — exists so consultants can charge different clients different rates for the same work, based on what they think each client can pay. That&rsquo;s a game I don&rsquo;t want to play.</p>
+          <p>If my prices are a problem for your situation, we&rsquo;ll figure that out faster by posting them than by dancing through three calls. If they&rsquo;re in range, great — we can spend the qualifying call on what actually matters.</p>
+        </div>
+      </section>
+
+      <div class="s-pull">
+        <p class="s-pull__text">&ldquo;If my prices are a problem<br />for your situation, we&rsquo;ll figure that out faster<br />by posting them than by dancing<br />through three calls.&rdquo;</p>
+        <span class="s-pull__attr">— On Pricing Transparency</span>
+      </div>
+    </div>
+
+    <CTABlock eyebrow="Next step" title="Prices in range?" ctaLabel="Start a discovery call">
+      Tell me about the project. We&rsquo;ll start with a 30-minute qualifying call.
+    </CTABlock>
+  </main>
+</FullSiteLayout>

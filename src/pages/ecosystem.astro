@@ -1,0 +1,154 @@
+---
+import FullSiteLayout from '../layouts/FullSiteLayout.astro';
+import CTABlock from '../components/CTABlock.astro';
+import '../styles/pages.css';
+
+const aspectLayers = [
+  { n: '1', layer: 'Context compaction', name: 'Squeeze', what: 'Proxy that summarizes, embeds, and compacts LLM conversation history' },
+  { n: '2', layer: 'Aspect framework', name: 'Cores', what: 'Fine-tuning pipeline + runtime for personality-driven small models' },
+  { n: '3', layer: 'Persistent agent runtime', name: 'Ruminate', what: 'The while-true loop — Aspects run continuously, processing memories' },
+  { n: '4', layer: 'Orchestration & urges', name: 'Impulse', what: 'Routing node + spontaneous thought injection + event system' },
+  { n: '5', layer: 'Distributed network', name: 'Mesh', what: 'Gossip protocol, organic cluster topology, federated personalities' },
+  { n: '6', layer: 'Desktop client & marketplace', name: 'Menagerie', what: 'Interactive companions, character marketplace, brand deals' },
+];
+---
+<FullSiteLayout title="Ecosystem — Infinite Room Labs">
+  <main id="main" class="page-fade">
+    <section class="s-page-head">
+      <div class="s-page-head__glow"></div>
+      <div class="irl-container s-page-head__inner">
+        <div class="s-page-head__eyebrow">Ecosystem</div>
+        <h1 class="s-page-head__title">What I&rsquo;m building<br />in the open.</h1>
+        <p class="s-page-head__sub">
+          The consulting work funds open-source AI agent tooling. The tooling makes the consulting better.
+          The progression — <strong>consulting → portfolio → ecosystem → platform</strong> — is deliberate. Here&rsquo;s what&rsquo;s currently in flight.
+        </p>
+      </div>
+    </section>
+
+    <div class="irl-container">
+      <section class="eco-intro">
+        <div class="s-prose">
+          <p>I dogfood everything I build. Each client engagement produces reusable Terraform modules, Claude Code skills, MCP servers, and operational tooling that gets extracted and open-sourced. The pieces below are at different stages — <strong>some are concept PRDs, some are early implementations, one is being used in production today.</strong></p>
+        </div>
+        <div>
+          <div class="s-eyebrow" style="margin-bottom: 16px;">Status legend</div>
+          <div class="eco-legend">
+            <div class="legend-item"><span class="s-badge s-badge--concept">Concept</span><span>PRD written, no code yet</span></div>
+            <div class="legend-item"><span class="s-badge s-badge--building">Building</span><span>Implementation in progress</span></div>
+            <div class="legend-item"><span class="s-badge s-badge--shipped">Shipped</span><span>Public, usable, has at least one real user</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="eco-section">
+        <div>
+          <div class="eco-section__num">/01</div>
+          <span class="s-badge s-badge--building">Building</span>
+          <p style="margin-top: 16px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; color: var(--fg-muted); text-transform: uppercase;">MCP bridge MVP first</p>
+        </div>
+        <div>
+          <h2 class="eco-section__title">Infinite Room</h2>
+          <p class="eco-section__one">A modular open-source ecosystem of skills, hooks, MCP servers, and services for AI coding agents — <strong>Symfony or Spring, but for Claude Code and adjacent tools.</strong></p>
+          <div class="eco-section__body">
+            <p><strong>Positioning.</strong> <em>The OpenTelemetry of AI agent tooling.</em> Specification-first, multi-language, vendor-neutral. Idiomatic SDKs per runtime, a collector-style orchestration layer, a central registry with tiered trust.</p>
+            <p><strong>The wedge.</strong> The missing bridge between <code>claude.ai</code> web Projects and Claude Code CLI. Anthropic&rsquo;s own GitHub issues document the demand; no shipped tool fills it. The MCP bridge MVP is the first concrete deliverable — read-only access to project knowledge, conversation history, artifacts, and memory from Claude Code.</p>
+            <p><strong>License model (planned).</strong> AGPL v3 for core platform, Apache 2.0 for client-facing libraries, proprietary for enterprise governance features. Mirrors the Grafana Labs / PostHog playbook.</p>
+            <p><strong>Why this exists.</strong> The AI coding tool space is consolidating into walled gardens (Cursor Marketplace, GitHub AgentHQ). Open ecosystem with cross-platform, cross-language reach is the gap.</p>
+          </div>
+          <div class="eco-section__links">
+            <span class="s-tlink" style="color: var(--fg-muted); border-color: var(--fg-muted);">Repository — coming soon</span>
+            <a class="s-tlink" href="#">Architecture overview →</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="eco-section">
+        <div>
+          <div class="eco-section__num">/02</div>
+          <span class="s-badge s-badge--building">Building</span>
+          <p style="margin-top: 16px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; color: var(--fg-muted); text-transform: uppercase;">MVP target April 2026</p>
+        </div>
+        <div>
+          <h2 class="eco-section__title">Dark Matter</h2>
+          <p class="eco-section__one">Managed cloud infrastructure platform — <strong>productized DevOps for businesses that need real infrastructure but can&rsquo;t justify a $150K full-time hire.</strong></p>
+          <div class="eco-section__body">
+            <p><strong>What it is.</strong> Clients lease cloud capacity (AWS, GCP, DigitalOcean) provisioned and managed by Infinite Room Labs. They pay cloud cost + management margin (15–25%) + a flat platform fee ($250–$1,000/mo). Typical client: $500–$5,000/mo cloud spend, no dedicated infrastructure person.</p>
+            <p><strong>What clients get:</strong></p>
+            <ul>
+              <li>Infrastructure provisioned via Terraform — reproducible, auditable, version-controlled</li>
+              <li>24/7 monitoring with Grafana / Prometheus / Alertmanager</li>
+              <li>Security scanning and patching (Trivy + Vault)</li>
+              <li>Cost optimization reviews (often saves more than the management margin)</li>
+              <li>Someone to call when things break at 2 AM</li>
+            </ul>
+            <p><strong>Not</strong> cPanel reselling. <strong>Not</strong> &ldquo;we&rsquo;ll set up your AWS account and walk away.&rdquo; It&rsquo;s a recurring service with operational accountability.</p>
+            <p><strong>V1 architecture:</strong> the &ldquo;invisible platform&rdquo; — no customer-facing software yet. The product is the standardized Terraform modules, monitoring stack, and runbooks executed on behalf of clients. V2 adds a self-service portal. V3 becomes a SaaS platform.</p>
+          </div>
+          <div class="eco-section__links">
+            <a class="s-tlink" href="#">Read the PRD →</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="eco-section">
+        <div>
+          <div class="eco-section__num">/03</div>
+          <span class="s-badge s-badge--concept">Concept → early build</span>
+        </div>
+        <div>
+          <h2 class="eco-section__title">Conductor</h2>
+          <p class="eco-section__one">Orchestration framework for Claude Code instances — <strong>their creation, configuration, lifecycle, composition, and distribution.</strong></p>
+          <div class="eco-section__body">
+            <p><strong>The problem it solves:</strong> <em>&ldquo;I have 12 repos, 5 clients, 3 persistent agents, and a bunch of reusable Claude Code configurations — how do I manage all of this?&rdquo;</em></p>
+            <p><strong>Architecture.</strong> Central Echo Server orchestrates Claude Code instances running in Docker containers (or bare processes for local dev). MCP exposed as the interop layer. Git-committed <code>.echo.yml</code> files configure environments declaratively. Persistent agents managed with restart policies, health checks, and centralized visibility.</p>
+            <p><strong>Why now.</strong> Claude Code&rsquo;s <code>--server</code> mode enables persistent agents but ships no lifecycle management. The community is hand-rolling this in a hundred different ways. Conductor is the opinionated framework.</p>
+            <p><strong>Internal use first.</strong> Conductor manages every Claude Code environment used to deliver Dark Matter and consulting engagements. Productized when the internal version is stable.</p>
+          </div>
+          <div class="eco-section__links">
+            <a class="s-tlink" href="#">Read the PRD →</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="eco-section">
+        <div>
+          <div class="eco-section__num">/04</div>
+          <span class="s-badge s-badge--concept">Concept · Six PRDs</span>
+          <p style="margin-top: 16px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; color: var(--fg-muted); text-transform: uppercase;">No commitment to ship order</p>
+        </div>
+        <div>
+          <h2 class="eco-section__title">Project Aspect <span style="color: var(--fg2); font-size: 0.5em;">(Labs)</span></h2>
+          <p class="eco-section__one">A <strong>distributed, personality-driven cognitive architecture</strong> that gives LLMs persistent memory, spontaneous thought, and emergent social behavior — built on ADHD-inspired lossy associative memory principles.</p>
+          <div class="eco-section__body">
+            <p><strong>The thesis.</strong> Human memory is lossy, associative, and salience-weighted. Current LLM &ldquo;memory&rdquo; is either <em>remember everything until context overflows</em> or <em>hard cutoff and forget</em>. Aspect builds a tiered memory system where small fine-tuned local models continuously process, consolidate, and surface context to a main LLM only when it matters.</p>
+            <p><strong>The six layers</strong> — each is a standalone product:</p>
+          </div>
+          <div class="eco-aspect-table">
+            <div class="eco-aspect-row head">
+              <span>#</span><span>Layer</span><span>Codename</span><span>What it is</span>
+            </div>
+            {aspectLayers.map((l) => (
+              <div class="eco-aspect-row">
+                <span class="eco-aspect-row__n">{l.n}</span>
+                <span class="eco-aspect-row__layer">{l.layer}</span>
+                <span class="eco-aspect-row__name">{l.name}</span>
+                <span class="eco-aspect-row__what">{l.what}</span>
+              </div>
+            ))}
+          </div>
+          <div class="eco-section__body" style="margin-top: 24px;">
+            <p><strong>Why this is here:</strong> because it&rsquo;s a research project, and research projects belong in public if they&rsquo;re going to mean anything. <strong>Squeeze (L1) is the most directly commercial</strong> — it ships first, alone, as a library before any of the higher layers exist.</p>
+          </div>
+          <div class="eco-section__links">
+            <a class="s-tlink" href="#">Read the vision →</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <CTABlock eyebrow="Battle-test it" title="Want to put this tooling on a real engagement?" ctaLabel="Start a discovery call">
+      Every Infinite Room Labs consulting engagement uses this stack — that&rsquo;s how it gets battle-tested. If you have a project where you want the same tooling I dogfood internally, that&rsquo;s where to start.
+    </CTABlock>
+  </main>
+</FullSiteLayout>

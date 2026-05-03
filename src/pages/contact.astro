@@ -1,0 +1,198 @@
+---
+import FullSiteLayout from '../layouts/FullSiteLayout.astro';
+import '../styles/pages.css';
+
+const engagementOptions = [
+  'I want to build something new',
+  'I have existing code or systems that need help (rescue)',
+  'I want an audit of an existing system',
+  'I want help integrating the MSPs / vendors my business already uses',
+  'I&rsquo;m an MSP looking for engineering manpower / subcontract capacity',
+  'Small-business project (website, e-commerce, internal tool)',
+  'I&rsquo;m looking for ongoing fractional or advisory support',
+  'Something else / I&rsquo;m not sure',
+];
+
+const decisionOptions = [
+  'Yes, I make the call',
+  'I&rsquo;m part of the decision, but others need to approve',
+  'No, I&rsquo;m researching on behalf of someone else',
+];
+---
+<FullSiteLayout title="Contact — Infinite Room Labs">
+  <main id="main" class="page-fade">
+    <section class="s-page-head">
+      <div class="s-page-head__glow"></div>
+      <div class="irl-container s-page-head__inner">
+        <div class="s-page-head__eyebrow">Contact / Discovery</div>
+        <h1 class="s-page-head__title">Tell me what you&rsquo;re trying<br />to build, fix, or rescue.</h1>
+        <p class="s-page-head__sub">
+          This form is the front door. Engagements that proceed start with a <strong>free 30-minute qualifying call</strong>, then a paid Discovery Sprint. There&rsquo;s no hourly back-and-forth before that.
+        </p>
+      </div>
+    </section>
+
+    <div class="irl-container">
+      <div class="ct-grid">
+        <div class="ct-intent">
+          <div>
+            <h3><span class="mark">+</span> Good fits</h3>
+            <ul>
+              <li>Legacy codebases that need modernization</li>
+              <li>CI/CD pipelines that no one wants to touch</li>
+              <li>Infrastructure that grew organically and now needs to be made reproducible</li>
+              <li>MSP-stack integration — wiring together the managed service providers a business already uses</li>
+              <li>MSPs that need senior engineering manpower for bespoke integration work</li>
+              <li>Agentic AI infrastructure (MCP servers, Claude Code orchestration, tool integrations)</li>
+              <li>A vibe-coded MVP or contractor handoff that needs an honest assessment</li>
+              <li>Small-business projects with a real outcome — websites, e-commerce, internal tools, system-to-system integrations</li>
+            </ul>
+          </div>
+          <div class="bad">
+            <h3><span class="mark bad">−</span> Probably not a fit</h3>
+            <ul>
+              <li>Anything under $5,000 that isn&rsquo;t a productized audit</li>
+              <li>&ldquo;Build me a clone of [SaaS product]&rdquo; with no domain knowledge</li>
+              <li>Engagements that require me to be on-site full-time</li>
+              <li>Work that conflicts with my non-solicit through February 2027</li>
+            </ul>
+          </div>
+          <div style="padding-top: 24px; border-top: 1px solid var(--irl-rule); font-family: var(--font-mono); font-size: 12px; color: var(--fg2); line-height: 1.6;">
+            <div style="color: var(--fg-muted); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 8px;">Direct line</div>
+            <a href="mailto:wes@infiniteroomlabs.com" style="color: #fff; border-bottom: 1px solid var(--accent); padding-bottom: 1px;">wes@infiniteroomlabs.com</a>
+          </div>
+        </div>
+
+        {/* TODO: wire submission backend; placeholder form for now */}
+        <form class="ct-form" method="post" action="#" aria-label="Contact form (placeholder)">
+          <div class="ct-form__bar"></div>
+
+          <div class="ct-form__sec">
+            <h3><span class="num">/01</span> Basic information</h3>
+            <div class="ct-field--row">
+              <div class="ct-field">
+                <label for="ct-name">Full name<span class="req">*</span></label>
+                <input id="ct-name" name="name" type="text" required />
+              </div>
+              <div class="ct-field">
+                <label for="ct-email">Email<span class="req">*</span></label>
+                <input id="ct-email" name="email" type="email" required />
+              </div>
+            </div>
+            <div class="ct-field--row">
+              <div class="ct-field">
+                <label for="ct-co">Company / Organization</label>
+                <input id="ct-co" name="company" type="text" />
+              </div>
+              <div class="ct-field">
+                <label for="ct-role">Your role</label>
+                <input id="ct-role" name="role" type="text" />
+              </div>
+            </div>
+          </div>
+
+          <div class="ct-form__sec">
+            <h3><span class="num">/02</span> Engagement type</h3>
+            <div class="ct-field">
+              <span>What brings you here?<span style="color: var(--accent);"> *</span></span>
+              <div class="ct-radio">
+                {engagementOptions.map((opt) => (
+                  <label>
+                    <input type="radio" name="type" required />
+                    <span set:html={opt} />
+                  </label>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div class="ct-form__sec">
+            <h3><span class="num">/03</span> Project context</h3>
+            <div class="ct-field">
+              <label for="ct-ctx">In a few sentences, what are you trying to accomplish?<span class="req">*</span></label>
+              <textarea
+                id="ct-ctx"
+                name="context"
+                required
+                minlength="200"
+                placeholder="200 character minimum. Be specific — what's the system, what's the problem, what does success look like?"
+              ></textarea>
+            </div>
+            <div class="ct-field--row">
+              <div class="ct-field">
+                <label for="ct-time">Timeline<span class="req">*</span></label>
+                <select id="ct-time" name="timeline" required>
+                  <option value="">Select…</option>
+                  <option>Urgent — need to start within 2 weeks</option>
+                  <option>Soon — within 1 to 3 months</option>
+                  <option>Planning ahead — 3 to 6 months out</option>
+                  <option>Exploring — no specific timeline</option>
+                </select>
+              </div>
+              <div class="ct-field">
+                <label for="ct-bud">Budget range<span class="req">*</span></label>
+                <select id="ct-bud" name="budget" required>
+                  <option value="">Select…</option>
+                  <option>Under $5,000</option>
+                  <option>$5,000 – $15,000</option>
+                  <option>$15,000 – $50,000</option>
+                  <option>$50,000+</option>
+                  <option>Not sure / need guidance</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="ct-form__sec">
+            <h3><span class="num">/04</span> Qualifying</h3>
+            <div class="ct-field">
+              <span>Are you the decision-maker for this engagement?<span style="color: var(--accent);"> *</span></span>
+              <div class="ct-radio">
+                {decisionOptions.map((opt) => (
+                  <label>
+                    <input type="radio" name="decision" required />
+                    <span set:html={opt} />
+                  </label>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div class="ct-form__sec">
+            <h3><span class="num">/05</span> Disclosure gate</h3>
+            <label class="ct-check">
+              <input type="checkbox" name="readHIW" required />
+              <span>
+                I&rsquo;ve read the <a href="/how-i-work" style="color: var(--fg2); border-bottom: 1px solid var(--accent);">How I Work</a> page and understand that engagements begin with a paid Discovery Sprint.<span style="color: var(--accent);"> *</span>
+              </span>
+            </label>
+          </div>
+
+          <button
+            type="submit"
+            class="s-btn s-btn--primary"
+            disabled
+            aria-disabled="true"
+            title="Form submission not yet wired up"
+            style="width: 100%; justify-content: center; padding: 20px 24px;"
+          >
+            Submit (placeholder) <span aria-hidden="true">→</span>
+          </button>
+        </form>
+      </div>
+
+      <div class="ct-form__expect">
+        <div>
+          <div class="s-eyebrow">After submit</div>
+          <h2 class="s-h2" style="margin-top: 12px;">What to expect.</h2>
+        </div>
+        <ol>
+          <li><span><b>Auto-confirmation email</b>with a link to my Cal.com page for booking the 30-minute qualifying call.</span></li>
+          <li><span><b>I review the submission</b>within one business day (priority response within 24 hours for budgets $50K+ on urgent timelines).</span></li>
+          <li><span><b>Qualifying call</b>30 minutes, video, recorded. We determine mutual fit.</span></li>
+          <li><span><b>If we proceed</b>I send a Discovery Sprint SOW for signature. 100% due upon execution (or 50/50 for first engagements). Discovery starts as soon as the calendar allows.</span></li>
+        </ol>
+      </div>
+    </div>
+  </main>
+</FullSiteLayout>

@@ -1,0 +1,161 @@
+---
+import FullSiteLayout from '../layouts/FullSiteLayout.astro';
+import CTABlock from '../components/CTABlock.astro';
+import '../styles/pages.css';
+---
+<FullSiteLayout title="How I Work — Infinite Room Labs">
+  <main id="main" class="page-fade">
+    <section class="s-page-head">
+      <div class="s-page-head__glow"></div>
+      <div class="irl-container s-page-head__inner">
+        <div class="s-page-head__eyebrow">How I Work</div>
+        <h1 class="s-page-head__title">How this<br />actually works.</h1>
+        <p class="s-page-head__sub">
+          <strong>A paid discovery engagement, a written milestone plan, and you owning everything at the end.</strong>
+          That&rsquo;s the whole model.
+        </p>
+      </div>
+    </section>
+
+    <div class="irl-container">
+
+      <section class="hiw-section" id="discovery">
+        <div class="hiw-section__inner">
+          <div>
+            <div class="hiw-step"><b>01</b>Discovery</div>
+          </div>
+          <div>
+            <h2 class="hiw-section__head">Nothing starts<br />without a paid<br />Discovery Sprint.</h2>
+            <div class="s-prose">
+              <p>Good engineering starts with good scoping. Every build engagement begins with a Discovery Sprint — a <strong>1 or 2 week fixed-fee engagement</strong> that produces a full technical specification, a milestone plan, and a fixed price for the build phase.</p>
+              <p>I don&rsquo;t do &ldquo;free consultations that turn into free proposals that turn into vague contracts.&rdquo; That pattern is how projects go sideways before the first commit.</p>
+            </div>
+
+            <h3 class="s-h3" style="margin-top: 36px; font-size: 18px; letter-spacing: 0.18em; color: var(--fg2);">What you get from Discovery</h3>
+            <ul class="hiw-list">
+              <li><span><b>Project Charter.</b> Goals, constraints, stakeholders, success criteria.</span></li>
+              <li><span><b>Product Requirements Document</b> with user flows.</span></li>
+              <li><span><b>Technical architecture</b> with diagrams.</span></li>
+              <li><span><b>Test strategy</b> with coverage targets.</span></li>
+              <li><span><b>Risk register</b> with mitigations.</span></li>
+              <li><span><b>Runbook outline</b> (completed during the build phase).</span></li>
+              <li><span><b>Build SOW</b> with milestones, written acceptance criteria, and fixed per-milestone pricing.</span></li>
+              <li><span><b>Decision log.</b> Every major architectural choice documented with rationale.</span></li>
+              <li><span><b>All meeting recordings and transcripts.</b></span></li>
+            </ul>
+
+            <h3 class="s-h3" style="margin-top: 36px; font-size: 18px; letter-spacing: 0.18em; color: var(--fg2);">Three paths after Discovery</h3>
+            <ol class="hiw-paths">
+              <li><span class="path-num">/01</span><span><b style="color: #fff;">Sign the Build SOW</b> and we start implementation.</span></li>
+              <li><span class="path-num">/02</span><span><b style="color: #fff;">Walk away.</b> Take everything I produced. Use it yourself or hand it to another implementer. No obligation.</span></li>
+              <li><span class="path-num">/03</span><span><b style="color: #fff;">Request additional discovery</b> for a scope change.</span></li>
+            </ol>
+            <div class="s-prose">
+              <p>The walk-away path isn&rsquo;t a trap. It&rsquo;s the whole point. If I&rsquo;ve done good work, the binder is genuinely useful to you regardless of who builds the thing.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="s-pull">
+        <p class="s-pull__text">&ldquo;The walk-away path isn&rsquo;t a trap.<br />It&rsquo;s the whole point.&rdquo;</p>
+        <span class="s-pull__attr">— On Discovery</span>
+      </div>
+
+      <section class="hiw-section">
+        <div class="hiw-section__inner">
+          <div><div class="hiw-step"><b>02</b>Process</div></div>
+          <div>
+            <h2 class="hiw-section__head">Meetings are recorded.<br />Decisions are written down.</h2>
+            <div class="s-prose">
+              <p>Every meeting is recorded and transcribed. You receive the recordings and transcripts as part of your deliverables.</p>
+              <p>I use AI tools — <strong>Fathom for transcription, Claude for synthesis</strong> and working through architectural questions — because they help me produce better work. I&rsquo;m upfront about this because the alternative is pretending, and pretending is how trust dies.</p>
+              <p>A few things worth stating explicitly:</p>
+              <ul>
+                <li>Your data is not used to train anyone&rsquo;s models. Transcripts stay between us.</li>
+                <li>AI assists with synthesis and organization, not with writing your production code unsupervised.</li>
+                <li>If you want specific sessions excluded from AI processing, say so and that&rsquo;s how it&rsquo;ll be.</li>
+              </ul>
+              <p>Every architectural and product decision goes into a <strong>Decision Log</strong> with the context, alternatives considered, and reasoning. Six months from now, when someone asks &ldquo;why did we do it this way?&rdquo;, the answer is two clicks away instead of lost to memory.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="hiw-section" id="milestones">
+        <div class="hiw-section__inner">
+          <div><div class="hiw-step"><b>03</b>Milestones</div></div>
+          <div>
+            <h2 class="hiw-section__head">Milestones are written down.<br />Acceptance is written down.</h2>
+            <div class="s-prose">
+              <p>Build engagements are structured as <strong>2–4 week milestones</strong>. Each milestone has written acceptance criteria in the Build SOW — so there&rsquo;s never a disagreement about whether something is &ldquo;done.&rdquo;</p>
+              <p>At the end of each milestone: a <strong>demo, a review, and written acceptance</strong> (or a bounded list of revisions). On acceptance, I invoice and the next milestone starts.</p>
+              <p>No balloon payments. No final-check negotiations. No end-of-project phone calls trying to reconcile what got built against vague contract language.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="hiw-section">
+        <div class="hiw-section__inner">
+          <div><div class="hiw-step"><b>04</b>Ownership</div></div>
+          <div>
+            <h2 class="hiw-section__head">You own everything.</h2>
+            <div class="s-prose">
+              <p>All code, all infrastructure as code, all documentation, all recordings, all diagrams — <strong>yours.</strong> Transferred to your GitHub organization, your cloud account, your systems.</p>
+              <p>If you hire me for a retainer afterward, it&rsquo;s because I&rsquo;m the best option for you — not because I&rsquo;m holding the keys hostage.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="s-pull">
+        <p class="s-pull__text">&ldquo;You own everything.&rdquo;</p>
+        <span class="s-pull__attr">— On Vendor Lock</span>
+      </div>
+
+      <section class="hiw-section">
+        <div class="hiw-section__inner">
+          <div><div class="hiw-step"><b>05</b>Definition of Done</div></div>
+          <div>
+            <h2 class="hiw-section__head">Every build ships<br />with a Definition of Done.</h2>
+            <div class="s-prose">
+              <p>This is the standard. Every implementation engagement includes:</p>
+            </div>
+            <ul class="hiw-dod">
+              <li><span><b>Source code</b> in your GitHub organization</span></li>
+              <li><span><b>Infrastructure as Code</b> covering everything the project touches</span></li>
+              <li><span><b>CI/CD pipeline</b> configured and documented</span></li>
+              <li><span><b>Test suite</b> with a stated coverage baseline</span></li>
+              <li><span><b>Runbook</b> covering common operations and failure modes</span></li>
+              <li><span><b>Architecture documentation</b> maintained throughout, not bolted on at the end</span></li>
+              <li><span><b>Recorded handoff walkthrough</b> — I explain the system end-to-end, you keep the video</span></li>
+              <li><span><b>Credentials and secrets</b> transferred to your systems</span></li>
+              <li><span><b>2–4 weeks of post-launch support</b> for bug fixes</span></li>
+            </ul>
+            <div class="s-prose" style="margin-top: 24px;">
+              <p>Most agencies don&rsquo;t ship this. I do. <strong>It&rsquo;s not an upsell — it&rsquo;s the job.</strong></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="hiw-section">
+        <div class="hiw-section__inner">
+          <div><div class="hiw-step"><b>06</b>Cadence</div></div>
+          <div>
+            <h2 class="hiw-section__head">I work async-first.</h2>
+            <div class="s-prose">
+              <p><strong>Weekly update videos. A shared project portal with real-time status.</strong> Synchronous calls only when they&rsquo;re actually needed, scheduled in advance, not reactive.</p>
+              <p>Why: I produce better work in focused blocks than in a day fragmented by 15-minute interruptions. Most clients produce better work the same way. Async-first respects both.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <CTABlock eyebrow="Get started" title="Sound like the way you want to work?" ctaLabel="Start a discovery call">
+      Every engagement starts with a free 30-minute qualifying call. No pitch — just a scope.
+    </CTABlock>
+  </main>
+</FullSiteLayout>

@@ -1,0 +1,20 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+}
+const { eyebrow, title, ctaLabel = 'Start the discovery process', ctaHref = '/contact' } = Astro.props;
+---
+<section class="home-cta">
+  <div class="home-cta__glow"></div>
+  <div class="irl-container home-cta__inner">
+    <div class="s-eyebrow">{eyebrow}</div>
+    <h2 class="home-cta__title" set:html={title} />
+    <p class="home-cta__body"><slot /></p>
+    <a class="s-btn s-btn--primary" href={ctaHref}>
+      {ctaLabel} <span aria-hidden="true">→</span>
+    </a>
+  </div>
+</section>

@@ -1,0 +1,93 @@
+---
+import FullSiteLayout from '../layouts/FullSiteLayout.astro';
+import CTABlock from '../components/CTABlock.astro';
+import '../styles/pages.css';
+---
+<FullSiteLayout title="About — Infinite Room Labs">
+  <main id="main" class="page-fade">
+    <section class="s-page-head">
+      <div class="s-page-head__glow"></div>
+      <div class="irl-container s-page-head__inner">
+        <div class="s-page-head__eyebrow">About</div>
+        <h1 class="s-page-head__title">A one-person consultancy<br />that runs a real<br />engineering operation.</h1>
+        <p class="s-page-head__sub">
+          I&rsquo;m <strong>Wes</strong>. Infinite Room Labs is a Kentucky LLC, headquartered in the Lexington area, and operated entirely by me. This is the story of how it got here and how it actually works.
+        </p>
+      </div>
+    </section>
+
+    <div class="irl-container">
+      <section class="about-section">
+        <div>
+          <div class="about-tag">/01 — Origin</div>
+          <h2 class="about-h">How this<br />started.</h2>
+        </div>
+        <div class="s-prose">
+          <p>I spent the last decade building and fixing backends, infrastructure, and test automation — first at enterprise software companies, then at a web agency. <strong>In early 2026, that role ended</strong> and I had the opening to start something I&rsquo;d been thinking about for a long time.</p>
+          <p>Infinite Room Labs is what I built with the runway.</p>
+          <p>One contractual note worth surfacing up front: a non-solicitation agreement signed in 2026 prohibits me from soliciting my prior employer&rsquo;s clients through February 2027. <strong>There&rsquo;s no non-compete.</strong> I can do identical work for anyone else immediately.</p>
+        </div>
+      </section>
+
+      <section class="about-section">
+        <div>
+          <div class="about-tag">/02 — Operation</div>
+          <h2 class="about-h">The three-track<br />operation.</h2>
+        </div>
+        <div class="s-prose">
+          <p>Infinite Room Labs runs three parallel tracks. Each one funds and feeds the others.</p>
+          <p><strong>Track 1 — Revenue.</strong> Consulting engagements (legacy modernization, CI/CD rescue, infrastructure as code, MSP integration, agentic AI infrastructure). Productized audits and rescue engagements. Fractional advisory retainers. Plus the occasional small-business website, e-commerce, or internal-tool build when the fit is right.</p>
+          <p><strong>Track 2 — Portfolio.</strong> A homelab running Proxmox, Kubernetes, Vault, Postgres, monitoring (Grafana / Prometheus / Loki), and an in-house secrets workflow. Published Terraform modules. Open-source repos. Everything I sell, I run myself first.</p>
+          <p><strong>Track 3 — Ecosystem.</strong> Open-source AI agent tooling under the <em>Infinite Room</em> umbrella. Dark Matter, Conductor, Project Aspect. The thesis: <strong>a single human architect, plus well-orchestrated AI agents, can produce the output of a much larger engineering team.</strong> The ecosystem proves it.</p>
+        </div>
+      </section>
+
+      <div class="s-pull">
+        <p class="s-pull__text">&ldquo;I won&rsquo;t pretend the homelab<br />is production-grade —<br />it&rsquo;s a lab, and you&rsquo;re paying me<br />to know the difference.&rdquo;</p>
+        <span class="s-pull__attr">— On the portfolio</span>
+      </div>
+
+      <section class="about-section">
+        <div>
+          <div class="about-tag">/03 — Operating model</div>
+          <h2 class="about-h">How I actually<br />work.</h2>
+        </div>
+        <div class="s-prose">
+          <p>I&rsquo;m <strong>async-first</strong>. Written-over-verbal. Focused blocks instead of fragmented days. AI tools used deliberately as cognitive scaffolding for synthesis, transcription, and rubber-ducking.</p>
+          <p>This isn&rsquo;t a preference list — it&rsquo;s how I produce my best work. Clients who lean into it get unusually thorough engineering and unusually well-documented deliverables. Clients who need an in-person, always-on, meetings-driven collaborator are better served by someone else, and I&rsquo;ll say so on the qualifying call.</p>
+        </div>
+      </section>
+
+      <section class="about-section">
+        <div>
+          <div class="about-tag">/04 — Refusals</div>
+          <h2 class="about-h">What I refuse.</h2>
+        </div>
+        <div>
+          <ul class="about-refuse">
+            <li><span><b>Free scoping.</b> Discovery is paid work.</span></li>
+            <li><span><b>Hourly billing on greenfield projects.</b> Aligns incentives wrong.</span></li>
+            <li><span><b>Hidden pricing.</b> Why I publish my rates.</span></li>
+            <li><span><b>Mystery-box delivery.</b> Every milestone has written acceptance criteria.</span></li>
+            <li><span><b>Vendor lock — my own.</b> Client owns the code, the infrastructure, the runbooks, and the recordings. Always.</span></li>
+            <li><span><b>Soliciting my prior employer&rsquo;s clients</b> until February 2027. Non-solicit honored.</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="about-section">
+        <div>
+          <div class="about-tag">/05 — Location</div>
+          <h2 class="about-h">Where<br />I work from.</h2>
+        </div>
+        <div class="s-prose">
+          <p><strong>Lexington area, Kentucky. Eastern Time. Remote-first.</strong> My homelab is racked in the same room I work from — there&rsquo;s a constant 30-decibel fan hum that&rsquo;s audible on calls. I&rsquo;ll mute. It&rsquo;s fine.</p>
+        </div>
+      </section>
+    </div>
+
+    <CTABlock eyebrow="Get in touch" title="Ready to start?" ctaLabel="Start a discovery call">
+      Engagements begin with a free 30-minute qualifying call.
+    </CTABlock>
+  </main>
+</FullSiteLayout>

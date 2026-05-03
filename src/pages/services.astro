@@ -1,0 +1,170 @@
+---
+import FullSiteLayout from '../layouts/FullSiteLayout.astro';
+import CTABlock from '../components/CTABlock.astro';
+import '../styles/pages.css';
+
+const services = [
+  {
+    num: '01',
+    name: 'Discovery Sprint',
+    price: '$8,000',
+    priceSub: '1 week  ·  $12k–$15k for 2 weeks',
+    bodyHtml: `
+      <p>The paid engagement that comes before any build work. Produces a full technical and product specification: <strong>PRD, architecture docs with diagrams, test strategy, risk register, runbook outline, and a detailed Build SOW</strong> with fixed pricing per milestone.</p>
+      <p>Client owns everything — all documents, all recordings, all transcripts. Walk away with the binder if you want. The Build SOW is a proposal, not an obligation.</p>
+    `,
+    linkLabel: 'Learn more →',
+    linkHref: '/how-i-work#discovery',
+  },
+  {
+    num: '02',
+    name: 'Implementation',
+    price: 'Fixed fee',
+    priceSub: 'per milestone',
+    bodyHtml: `
+      <p>Build engagements structured as <strong>2–4 week milestones</strong>, each with written acceptance criteria. Every implementation ships with a runbook, test suite, infrastructure as code, CI/CD pipeline, and a recorded handoff walkthrough.</p>
+      <p>No mystery-box delivery. No &ldquo;final 20%&rdquo; that never ends.</p>
+    `,
+    linkLabel: 'Learn more →',
+    linkHref: '/how-i-work#milestones',
+  },
+  {
+    num: '03',
+    name: 'Technical Audit',
+    price: 'From $4,000',
+    priceSub: 'productized',
+    bodyHtml: `
+      <p>Productized audits of existing systems: CI/CD assessment, legacy modernization roadmap, infrastructure review, MSP-stack integration review, or test coverage analysis. You get a <strong>prioritized findings report and a recommended roadmap</strong>. No commitment to further work.</p>
+      <p>Good for: new CTOs inheriting a system, ops leads trying to untangle a sprawl of MSP vendors, teams about to take on a rewrite, founders trying to understand what they bought.</p>
+    `,
+    linkLabel: 'Learn more →',
+    linkHref: '/contact',
+  },
+  {
+    num: '04',
+    name: 'Rescue',
+    price: 'From $5,000',
+    priceSub: 'assessment + path',
+    bodyHtml: `
+      <p>Got something that&rsquo;s almost working? <strong>A vibe-coded MVP, a half-finished contractor handoff, a legacy system no one wants to touch?</strong> Bring it.</p>
+      <p>I&rsquo;ll tell you honestly what it is, what it&rsquo;d take to get where you want it, and whether I&rsquo;m the right person for the job — or whether you should take my report somewhere else. No judgment.</p>
+    `,
+    linkLabel: 'Learn more →',
+    linkHref: '/contact',
+  },
+  {
+    num: '05',
+    name: 'Fractional Lead',
+    price: '$3,000–$5,000',
+    priceSub: '/ month  ·  10–15 hrs',
+    bodyHtml: `
+      <p>Ongoing architectural and engineering advisory. <strong>10–15 hours per month, month-to-month, no auto-renew.</strong> Code review, architecture decisions, team mentorship, pager-optional.</p>
+      <p>Good for: solo founders with contractors who need a senior set of eyes, small teams without a CTO, startups post-launch that need to stabilize.</p>
+    `,
+    linkLabel: 'Learn more →',
+    linkHref: '/contact',
+  },
+];
+---
+<FullSiteLayout title="Services — Infinite Room Labs">
+  <main id="main" class="page-fade">
+    <section class="s-page-head">
+      <div class="s-page-head__glow"></div>
+      <div class="irl-container s-page-head__inner">
+        <div class="s-page-head__eyebrow">Services</div>
+        <h1 class="s-page-head__title">Technical consulting<br />for teams that want<br />to ship.</h1>
+        <p class="s-page-head__sub">
+          Solo DevOps and software engineering consultancy. Core practice:
+          <strong> legacy modernization, CI/CD, infrastructure as code, MSP integration, and agentic AI infrastructure</strong>.
+          I also welcome <strong>small-business projects</strong> — websites, e-commerce, internal tools — when the fit is right.
+          Polyglot. I work in whatever stack the project lives in.
+        </p>
+      </div>
+    </section>
+
+    <div class="irl-container">
+      <section class="svc-intro">
+        <div>
+          <div class="s-eyebrow">Intro</div>
+          <div class="svc-intro__sig"><b>W</b>Wes<br />Principal · IRL</div>
+        </div>
+        <div class="s-prose" style="max-width: 64ch;">
+          <p>I&rsquo;m Wes. I&rsquo;ve spent <strong>10+ years building and fixing backends, infrastructure, and test automation</strong> — first at enterprise software companies, then at a web agency.</p>
+          <p>Infinite Room Labs is a one-person consultancy doing that work the way it should have been done the whole time: with <strong>paid discovery before contracts, milestones with written acceptance, and documentation as a deliverable</strong> instead of an afterthought.</p>
+        </div>
+      </section>
+
+      <section class="svc-list">
+        <div class="s-eyebrow" style="margin-bottom: 16px;">What I offer</div>
+        <h2 class="s-h2" style="margin-bottom: 0;">Five engagements.</h2>
+
+        {services.map((s) => (
+          <article class="svc-item">
+            <div class="svc-item__head">
+              <div class="svc-item__num">/{s.num}</div>
+              <h2>{s.name}</h2>
+              <div class="svc-item__price">{s.price}<small>{s.priceSub}</small></div>
+            </div>
+            <div class="svc-item__body s-prose">
+              <Fragment set:html={s.bodyHtml} />
+              <a class="s-tlink" href={s.linkHref}>{s.linkLabel}</a>
+            </div>
+          </article>
+        ))}
+      </section>
+
+      <div class="s-pull">
+        <p class="s-pull__text">&ldquo;It&rsquo;s not an upsell — it&rsquo;s the job.&rdquo;</p>
+        <span class="s-pull__attr">— On Definition of Done</span>
+      </div>
+
+      <section class="svc-list" style="margin-top: 0;">
+        <div class="s-eyebrow" style="margin-bottom: 16px;">Who I work with</div>
+        <h2 class="s-h2" style="margin-bottom: 24px;">Three audiences,<br />same operating model.</h2>
+        <div class="s-prose" style="max-width: 64ch;">
+          <p>The engagement model — paid discovery, written milestones, you own everything — doesn&rsquo;t change based on who you are. The work does.</p>
+        </div>
+
+        <article class="svc-item">
+          <div class="svc-item__head">
+            <div class="svc-item__num">/A</div>
+            <h2>Engineering teams</h2>
+            <div class="svc-item__price">Core practice<small>where I&rsquo;m sharpest</small></div>
+          </div>
+          <div class="svc-item__body s-prose">
+            <p>Existing engineering orgs that need a senior set of hands on a specific problem: <strong>legacy modernization, CI/CD rescue, infrastructure as code, observability, agentic AI infrastructure.</strong> Usually a CTO, VP Eng, or staff engineer is the buyer.</p>
+          </div>
+        </article>
+
+        <article class="svc-item">
+          <div class="svc-item__head">
+            <div class="svc-item__num">/B</div>
+            <h2>MSP integration &amp; talent</h2>
+            <div class="svc-item__price">Two-sided<small>businesses + MSPs</small></div>
+          </div>
+          <div class="svc-item__body s-prose">
+            <p><strong>For businesses:</strong> most companies juggle a stack of managed service providers — IT, security, telephony, backup, cloud, payroll. Each one ships its own portal, its own ticket queue, its own export format. The friction shows up in <em>workflow seams</em>: data that has to be re-keyed, alerts that don&rsquo;t reach the right people, status that lives in five dashboards. I build the glue — custom connectors, automation, dashboards, and lightweight internal tools — so your MSPs work together instead of around each other.</p>
+            <p><strong>For MSPs:</strong> if you&rsquo;re an MSP that needs senior engineering manpower for the bespoke 20% your standard bench doesn&rsquo;t cover — custom integrations, legacy-to-modern bridges, IaC standardization across a client portfolio, white-labelable runbooks — I&rsquo;ll engage as a subcontractor under your brand or directly with your client, your call.</p>
+          </div>
+        </article>
+
+        <article class="svc-item">
+          <div class="svc-item__head">
+            <div class="svc-item__num">/C</div>
+            <h2>Small businesses &amp; non-technical founders</h2>
+            <div class="svc-item__price">Welcome<small>same model, smaller scope</small></div>
+          </div>
+          <div class="svc-item__body s-prose">
+            <p>You don&rsquo;t need to be a software company to have a real software problem. Websites, e-commerce builds, internal tools, integrations between the systems you already use — all welcome.</p>
+            <p><strong>Concrete example:</strong> a mechanic I know wants an e-commerce site that proxies a warehouse he has a commission deal with — products and inventory stay in sync automatically, with a CMS and admin so he can manage the storefront. That&rsquo;s the kind of project that fits here. Real business outcome, bounded scope, custom integration that an off-the-shelf platform can&rsquo;t quite do alone.</p>
+            <p>Same engagement model: paid Discovery, written milestones, fixed-fee per milestone, you own everything. The numbers are smaller; the discipline is the same.</p>
+          </div>
+        </article>
+      </section>
+    </div>
+
+    <CTABlock eyebrow="Next step" title="Ready to scope it?" ctaLabel="Start a discovery call">
+      Every engagement begins with a 30-minute qualifying call. No pitch — just a scope.
+    </CTABlock>
+  </main>
+</FullSiteLayout>

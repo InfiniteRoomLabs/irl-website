@@ -1,0 +1,113 @@
+---
+import FullSiteLayout from '../layouts/FullSiteLayout.astro';
+import CTABlock from '../components/CTABlock.astro';
+import '../styles/pages.css';
+
+const faqs = [
+  {
+    id: 'free-consultations',
+    q: 'Do you do free initial consultations?',
+    aHtml: 'Yes — <strong>30 minutes</strong>, long enough to determine mutual fit. Not long enough to scope a project. Scoping is what Discovery is for.'
+  },
+  {
+    id: 'why-paid-scoping',
+    q: 'Why won&rsquo;t you just scope my project for free like other agencies?',
+    aHtml: 'Because scoping is real work. Free scoping is how clients and consultants end up in disputes six months later — the consultant rushed it to close the deal, the client didn&rsquo;t push for detail, and nobody wrote down enough to matter. <strong>Paid discovery aligns incentives:</strong> I&rsquo;m being paid to be thorough, not to close.'
+  },
+  {
+    id: 'know-what-i-want',
+    q: 'What if I already know exactly what I want built?',
+    aHtml: 'Then Discovery goes faster. The outputs are the same — detailed spec, Build SOW with milestones and acceptance criteria, full ownership of everything I produced. <strong>A 1-week sprint may be enough.</strong>'
+  },
+  {
+    id: 'take-binder',
+    q: 'Can I take the Discovery binder and hire someone else to build it?',
+    aHtml: '<strong>Yes, explicitly.</strong> The SOW is written to protect that right.'
+  },
+  {
+    id: 'do-you-sign-ndas',
+    q: 'Do you sign NDAs?',
+    aHtml: 'Yes, if you want one. I&rsquo;ll sign a reasonable mutual NDA before any substantive technical discussion.'
+  },
+  {
+    id: 'tech-stack',
+    q: 'What about [specific technology stack]?',
+    aHtml: 'I&rsquo;m equally fluent in <strong>PHP, Java, Python, and Kotlin</strong>, and equally at home in <strong>DevOps and IaC across AWS/GCP/Azure and CI/CD systems</strong>. I also work competently in TypeScript/Node.js. For other tech, I&rsquo;d need a short ramp-up — I learned long ago that you <em>learn concepts, not syntax</em>, and I&rsquo;m happy to take that on if the client is comfortable with the ramp. If your stack is something where I wouldn&rsquo;t be the best option, I&rsquo;ll tell you on the qualifying call.'
+  },
+  {
+    id: 'who-do-you-work-with',
+    q: 'Do you work with startups, large companies, and nonprofits?',
+    aHtml: 'All of them — with the caveat that <strong>engagements under $5,000 are probably not a fit</strong> unless they&rsquo;re productized audits.'
+  },
+  {
+    id: 'msps',
+    q: 'How does MSP integration work?',
+    aHtml: 'Two ways. <strong>If you&rsquo;re a business</strong> running a stack of managed service providers — IT, security, backup, cloud, telephony, payroll — I build the glue between them. Custom connectors, automation, dashboards, and lightweight internal tools so your vendors work <em>together</em> instead of forcing your team to bridge five portals by hand. <strong>If you&rsquo;re an MSP</strong> that needs senior engineering manpower for bespoke integration work your standard bench doesn&rsquo;t cover, I&rsquo;ll engage as a subcontractor under your brand or directly with your client.'
+  },
+  {
+    id: 'non-technical',
+    q: 'I&rsquo;m not a technical founder — am I a fit?',
+    aHtml: 'Probably yes, if the project is well-bounded and the budget makes sense. <strong>Websites, e-commerce builds, internal tools, integrations between systems you already use</strong> — all welcome. Same engagement model as everything else: paid Discovery, written milestones, you own everything. If the budget is too small for that to make sense, I&rsquo;ll say so on the qualifying call instead of stretching the scope to fit.'
+  },
+  {
+    id: 'hours-and-tz',
+    q: 'What hours and timezone?',
+    aHtml: 'Based in <strong>Eastern Time (Kentucky)</strong>. I work roughly 9am–5pm ET, but async-first — you don&rsquo;t need to be in my timezone.'
+  },
+  {
+    id: 'do-you-use-ai',
+    q: 'Do you use AI?',
+    aHtml: 'Yes, extensively, and I&rsquo;m transparent about how. See <a href="/how-i-work">How I Work</a> for the specifics. Short version: <strong>AI assists with transcription, synthesis, and working through architectural questions.</strong> It does not write your production code unsupervised, and your data is not used to train anyone&rsquo;s models.'
+  },
+  {
+    id: 'travel',
+    q: 'Do you travel for on-site work?',
+    aHtml: '<strong>Remote-first by strong preference.</strong> I&rsquo;ll consider on-site engagements for the right fit, but it needs to be a real need and scoped into the SOW.'
+  },
+  {
+    id: 'discovery-really',
+    q: 'What&rsquo;s a &ldquo;Discovery Sprint&rdquo; really?',
+    aHtml: 'A structured engagement that produces the documents and decisions needed to build something well. <strong>Two or three deep-dive meetings, a week or two of synthesis and research, and a binder at the end</strong> with everything required to either build the thing or hand the binder to someone else to build it.'
+  },
+  {
+    id: 'no-build',
+    q: 'What if Discovery reveals the project shouldn&rsquo;t happen?',
+    aHtml: 'That&rsquo;s a legitimate Discovery outcome. If the honest answer is <strong>&ldquo;you don&rsquo;t actually need to build this&rdquo;</strong> or <strong>&ldquo;the cost would exceed the value,&rdquo;</strong> I&rsquo;ll say that. You paid for the truth, not for a pitch — and <strong>if we wrap up materially earlier than the SOW estimated, I&rsquo;ll prorate the difference and refund it.</strong> A clean &ldquo;don&rsquo;t build this&rdquo; finding shouldn&rsquo;t cost you the full sprint.'
+  },
+];
+---
+<FullSiteLayout title="FAQ — Infinite Room Labs">
+  <main id="main" class="page-fade">
+    <section class="s-page-head">
+      <div class="s-page-head__glow"></div>
+      <div class="irl-container s-page-head__inner">
+        <div class="s-page-head__eyebrow">FAQ</div>
+        <h1 class="s-page-head__title">Frequently asked.</h1>
+        <p class="s-page-head__sub">
+          Twelve questions, answered straight. <strong>If yours isn&rsquo;t here, ask on the qualifying call.</strong>
+        </p>
+      </div>
+    </section>
+
+    <div class="irl-container">
+      <section class="faq-list">
+        {faqs.map((f, i) => (
+          <article class="faq-item" id={f.id}>
+            <div class="faq-item__num">/{String(i + 1).padStart(2, '0')}</div>
+            <h2 class="faq-item__q" set:html={f.q} />
+            <p class="faq-item__a" set:html={f.aHtml} />
+          </article>
+        ))}
+      </section>
+
+      <div class="s-pull">
+        <p class="s-pull__text">&ldquo;I&rsquo;m being paid to be thorough,<br />not to close.&rdquo;</p>
+        <span class="s-pull__attr">— On Discovery</span>
+      </div>
+    </div>
+
+    <CTABlock eyebrow="Still have questions?" title="Ask on the qualifying call." ctaLabel="Start a discovery call">
+      30 minutes, video, recorded. We determine mutual fit.
+    </CTABlock>
+  </main>
+</FullSiteLayout>

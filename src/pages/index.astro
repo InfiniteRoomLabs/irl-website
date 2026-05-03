@@ -1,17 +1,170 @@
 ---
+import FullSiteLayout from '../layouts/FullSiteLayout.astro';
+import '../styles/pages.css';
 
+const tracks = [
+  {
+    num: '01',
+    name: 'Consulting',
+    desc: 'Paid discovery, fixed-fee milestones, full ownership transfer at the end. Legacy modernization, CI/CD rescue, infrastructure as code, MSP integration, agentic AI infrastructure — plus websites, e-commerce, and internal tools when the fit is right.',
+    tag: 'Accepting work',
+  },
+  {
+    num: '02',
+    name: 'Portfolio',
+    desc: 'Homelab running Proxmox, Kubernetes, Vault, and the same monitoring stack I deploy for clients. Published Terraform modules. Open-source repos. Everything I sell, I run myself first.',
+    tag: 'Operational',
+  },
+  {
+    num: '03',
+    name: 'Ecosystem',
+    desc: 'Open-source AI agent tooling under the Infinite Room umbrella — the framework I dogfood on every client engagement. Eventually it stands on its own.',
+    tag: 'Building in the open',
+  },
+];
+
+const eco = [
+  {
+    name: 'Infinite Room',
+    tag: 'Building',
+    bodyHtml:
+      'Modular ecosystem of skills, hooks, MCP servers, and services for Claude Code and adjacent agentic tools. Positioned as <strong>the OpenTelemetry of AI agent tooling</strong>.',
+  },
+  {
+    name: 'Dark Matter',
+    tag: 'Building',
+    bodyHtml:
+      "Managed cloud infrastructure platform. <strong>Productized DevOps</strong> for businesses that need real infrastructure but can&rsquo;t justify a $150K hire.",
+  },
+  {
+    name: 'Conductor',
+    tag: 'Concept',
+    bodyHtml: 'Orchestration framework for managing Claude Code instances across projects, clients, and persistent agents.',
+  },
+  {
+    name: 'Project Aspect',
+    tag: 'Concept',
+    bodyHtml: 'Six early PRDs — a <strong>distributed cognitive architecture</strong> for LLMs. Research project. Ship-when-it-ships.',
+  },
+];
 ---
+<FullSiteLayout title="Infinite Room Labs — Automate all the things." includeOrgSchema={true}>
+  <main id="main" class="page-fade">
+    <section class="home-hero">
+      <div class="home-hero__glow"></div>
+      <div class="irl-container home-hero__inner">
+        <div class="home-hero__eyebrow">
+          <span>Infinite Room Labs</span>
+          <span>·</span>
+          <span>Solo technical consultancy</span>
+          <span>·</span>
+          <span>Lexington, KY</span>
+        </div>
+        <h1 class="home-hero__title">
+          Automate<br />
+          <span class="all">all</span> the things.
+        </h1>
+        <div class="home-hero__rule"></div>
+        <div class="home-hero__lower">
+          <p class="home-hero__pull">
+            Solo technical consultancy for engineering teams, MSPs, and small
+            businesses that want to ship software, not produce meetings.
+            <strong>
+              Legacy modernization, CI/CD rescue, infrastructure as code, MSP
+              integration, agentic AI infrastructure — and the occasional website,
+              e-commerce build, or internal tool
+            </strong>
+            when it&rsquo;s the right fit. Delivered with paid discovery, written
+            milestones, and you owning everything at the end.
+          </p>
+          <div class="home-hero__ctas">
+            <a class="s-btn s-btn--primary" href="/contact">
+              Start a discovery call <span aria-hidden="true">→</span>
+            </a>
+            <a class="s-tlink" href="/how-i-work">See how I work →</a>
+          </div>
+        </div>
+        <div class="home-hero__footrow">
+          <span><b>Engagement</b> Paid discovery · Fixed-fee milestones</span>
+          <span><b>LLC</b> Kentucky · Est. 2026</span>
+          <span><b>Operating</b> Remote-first · ET</span>
+        </div>
+      </div>
+    </section>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+    <section class="home-tracks">
+      <div class="irl-container">
+        <div class="home-tracks__head">
+          <div>
+            <div class="s-eyebrow">Operation</div>
+            <h2 class="s-h2">Three tracks,<br />one operation.</h2>
+          </div>
+          <p class="home-tracks__lead">
+            Infinite Room Labs runs three parallel tracks that fund each other.
+            You hire the consultancy. The portfolio and the ecosystem are why
+            I&rsquo;m worth hiring.
+          </p>
+        </div>
+
+        <div class="home-tracks__list">
+          {tracks.map((t) => (
+            <div class="home-track">
+              <div class="home-track__num">/{t.num}</div>
+              <h3 class="home-track__name">{t.name}</h3>
+              <p class="home-track__desc">{t.desc}</p>
+              <div class="home-track__tag">{t.tag}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="home-eco s-section--deep" style="background: var(--bg-deep);">
+      <div class="irl-container">
+        <div class="home-eco__grid">
+          <div>
+            <div class="s-eyebrow">In the open</div>
+            <h2 class="s-h2">What I&rsquo;m building<br />in the open.</h2>
+            <p style="margin-top: 28px; font-size: 16px; color: var(--fg2); line-height: 1.6; font-weight: 300; max-width: 40ch;">
+              The consulting work funds open-source tooling for AI coding agents.
+              Three pieces are public or near-public, with six early PRDs sitting under <em>Project Aspect</em>.
+            </p>
+            <div style="margin-top: 32px;">
+              <a class="s-tlink" href="/ecosystem">Explore the ecosystem →</a>
+            </div>
+          </div>
+          <div class="home-eco__list">
+            {eco.map((e) => (
+              <div class="home-eco__item">
+                <div>
+                  <h3>{e.name}</h3>
+                  <p set:html={e.bodyHtml} />
+                </div>
+                <span class={`s-badge s-badge--${e.tag.toLowerCase()}`}>{e.tag}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-cta">
+      <div class="home-cta__glow"></div>
+      <div class="irl-container home-cta__inner">
+        <div class="s-eyebrow">Get started</div>
+        <h2 class="home-cta__title">Have something<br />that needs to ship?</h2>
+        <p class="home-cta__body">
+          <strong>
+            A legacy modernization that scares your team. A CI/CD pipeline no one wants to touch.
+            An MSP that needs deeper integration work. An agentic-AI initiative that needs an infrastructure
+            adult. A small business with a real software problem and no one to call.
+          </strong>
+          That&rsquo;s where we start.
+        </p>
+        <a class="s-btn s-btn--primary" href="/contact">
+          Start the discovery process <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+  </main>
+</FullSiteLayout>
