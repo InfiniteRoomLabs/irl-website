@@ -1,0 +1,15 @@
+---
+import ThresholdMark from './ThresholdMark.astro';
+
+interface Props {
+  markSize?: number;
+  compact?: boolean;
+  className?: string;
+}
+
+const { markSize = 22, compact = false, className = '' } = Astro.props;
+---
+<span class:list={['logo-combo', className]}>
+  <ThresholdMark size={markSize} />
+  <span class="logo-combo__word">{compact ? 'IRL' : 'Infinite Room Labs'}</span>
+</span>

@@ -18,6 +18,12 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - `splash-prompt.md` follow-up brief for the Claude Design teaser page.
 - `just` devcontainer feature replaces broken apt install.
 - `CLAUDE.md` with project conventions for future Claude Code sessions.
+- Splash page at `/` (`src/pages/index.astro`) — HeroA-based stripped
+  sibling of the eventual full home, rendered with `SplashLayout.astro`,
+  `LogoCombo.astro`, and `src/styles/splash.css`. Mailto-only CTA, no
+  nav links, stripped footer. Replaces the scaffold placeholder.
+- `.logo-combo` lockup utility added to `shell.css` (mark + wordmark,
+  shared between splash chrome and the full-site nav after merge).
 
 ### Changed
 - `Dockerfile` no longer attempts to apt-install `just` (not in Bookworm

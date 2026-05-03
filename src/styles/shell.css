@@ -44,6 +44,17 @@
 .s-nav__brand svg { width: 22px; height: 22px; display: block; }
 .s-nav__brand .full { display: inline; }
 .s-nav__brand .short { display: none; }
+
+/* Reusable logo lockup: mark + wordmark, set in display type. */
+.logo-combo {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--font-display); font-weight: 400;
+  font-size: 18px; letter-spacing: 0.18em;
+  color: #fff; text-transform: uppercase;
+  line-height: 1;
+}
+.logo-combo svg { display: block; flex-shrink: 0; }
+.logo-combo__word { white-space: nowrap; }
 .s-nav__links { margin-left: auto; display: flex; gap: 28px; }
 .s-nav__link {
   font-size: 12px; letter-spacing: 0.16em;

@@ -1,0 +1,235 @@
+/* ================================================================
+   Splash page — HeroA-based stripped sibling of the full home.
+   Self-contained: includes the .hh-frame + .hh-a* layout (so the
+   feature/full-site branch's pages.css doesn't need to ship for
+   the splash to render) plus splash-only chrome and overrides.
+   ================================================================ */
+
+.hh-frame {
+  width: 100%;
+  background: var(--bg);
+  color: var(--fg3);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HeroA — full-bleed display type, editorial pull-paragraph */
+.hh-a {
+  position: relative;
+  flex: 1;
+  padding: 80px 48px 64px;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.hh-a__glow {
+  position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(720px 480px at 100% -10%, rgba(198,40,40,0.22), transparent 60%);
+}
+.hh-a__inner {
+  position: relative; max-width: 1280px; margin: 0 auto; width: 100%;
+  flex: 1; display: flex; flex-direction: column;
+}
+.hh-a__eyebrow {
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--fg2); font-weight: 400;
+  display: flex; gap: 16px; align-items: center;
+}
+.hh-a__eyebrow::before {
+  content: ""; display: block; width: 32px; height: 1px; background: var(--accent);
+}
+.hh-a__title {
+  font-family: var(--font-display);
+  font-size: 192px; line-height: 0.86;
+  letter-spacing: 0.02em; text-transform: uppercase;
+  color: #fff; margin: 28px 0 0;
+  font-weight: 400;
+  text-wrap: balance;
+}
+.hh-a__title .all { color: var(--accent); }
+.hh-a__rule {
+  height: 3px; background: var(--irl-gradient-bar);
+  margin: 36px 0 0; width: 100%;
+}
+.hh-a__lower {
+  margin-top: 36px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+  align-items: end;
+  flex: 1;
+}
+.hh-a__pull {
+  font-family: var(--font-sans);
+  font-weight: 200; font-size: 22px; line-height: 1.45;
+  color: var(--fg2);
+  max-width: 56ch; margin: 0;
+  letter-spacing: 0;
+}
+.hh-a__pull strong { color: #fff; font-weight: 500; }
+.hh-a__ctas {
+  display: flex; flex-direction: column; gap: 14px; align-items: flex-end;
+}
+.hh-a__cta {
+  display: inline-flex; align-items: center; gap: 14px;
+  background: var(--accent); color: #fff;
+  font-family: var(--font-sans); font-weight: 600; font-size: 14px;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 18px 26px;
+  border: 0; cursor: pointer; text-decoration: none;
+  transition: background var(--dur-1) var(--ease-standard);
+}
+.hh-a__cta:hover { background: var(--accent-hover); }
+.hh-a__footrow {
+  margin-top: 48px;
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--fg-muted);
+  padding-top: 20px; border-top: 1px solid var(--irl-rule);
+}
+.hh-a__footrow b { color: var(--fg2); font-weight: 500; margin-right: 8px; }
+
+/* Splash root — extends .hh-frame so HeroA layout works inside it,
+ * but allows the page to scroll if content overflows on small screens. */
+.splash.hh-frame {
+  height: auto;
+  min-height: 100%;
+  overflow: visible;
+}
+
+/* Stripped nav (no nav links) */
+.splash-nav {
+  background: var(--bg);
+  border-bottom: 1px solid var(--irl-rule);
+  flex-shrink: 0;
+}
+.splash-nav__bar {
+  height: 3px;
+  background: var(--irl-gradient-bar);
+}
+.splash-nav__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 18px 48px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.splash-nav__brand {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+.splash-nav__meta {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--fg-muted);
+  text-transform: uppercase;
+}
+
+/* ETA stamp under the primary CTA */
+.splash-eta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+/* Stripped footer */
+.splash-footer {
+  border-top: 1px solid var(--irl-rule);
+  background: var(--bg);
+  margin-top: auto;
+}
+.splash-footer__bar {
+  height: 3px;
+  background: var(--irl-gradient-bar);
+}
+.splash-footer__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 36px 48px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 32px;
+  align-items: center;
+}
+.splash-footer__brand {
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 0.16em;
+  color: #fff;
+  text-transform: uppercase;
+  line-height: 1.05;
+}
+.splash-footer__tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+.splash-footer__legal {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  text-align: right;
+  line-height: 1.6;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .splash-nav__inner { padding: 14px 20px; }
+  .splash-nav__meta { display: none; }
+
+  .splash .hh-a { padding: 40px 20px 32px; }
+  .splash .hh-a__title { font-size: 80px; }
+  .splash .hh-a__eyebrow { font-size: 10px; gap: 10px; flex-wrap: wrap; }
+  .splash .hh-a__eyebrow::before { display: none; }
+  .splash .hh-a__rule { margin-top: 28px; }
+  .splash .hh-a__lower {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    align-items: stretch;
+  }
+  .splash .hh-a__pull { font-size: 17px; }
+  .splash .hh-a__ctas { align-items: flex-start; }
+  .splash .hh-a__cta {
+    padding: 16px 20px;
+    font-size: 13px;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .splash .hh-a__footrow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 32px;
+    font-size: 9px;
+  }
+
+  .splash-footer__inner {
+    padding: 28px 20px;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .splash-footer__legal { text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash *,
+  .splash *::before,
+  .splash *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

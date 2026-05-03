@@ -1,17 +1,69 @@
 ---
-
+import SplashLayout from '../layouts/SplashLayout.astro';
+import LogoCombo from '../components/LogoCombo.astro';
 ---
+<SplashLayout title="Infinite Room Labs — Automate all the things.">
+  <div class="splash hh-frame">
+    <header class="splash-nav">
+      <div class="splash-nav__bar"></div>
+      <div class="splash-nav__inner">
+        <a class="splash-nav__brand" href="/">
+          <LogoCombo markSize={22} />
+        </a>
+        <span class="splash-nav__meta">LEX, KY · ET · Soft launch</span>
+      </div>
+    </header>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+    <main id="main">
+      <section class="hh-a">
+        <div class="hh-a__glow"></div>
+        <div class="hh-a__inner">
+          <div class="hh-a__eyebrow">
+            <span>Infinite Room Labs</span>
+            <span>·</span>
+            <span>Solo technical consultancy</span>
+            <span>·</span>
+            <span>Lexington, KY</span>
+          </div>
+          <h1 class="hh-a__title">
+            Automate<br />
+            <span class="all">all</span> the things.
+          </h1>
+          <div class="hh-a__rule"></div>
+          <div class="hh-a__lower">
+            <p class="hh-a__pull">
+              The full site is shipping soon. For now: <strong>solo
+              technical consultancy out of Lexington, KY.</strong> Paid
+              discovery, written milestones, you own everything at the end.
+              Email is the front door.
+            </p>
+            <div class="hh-a__ctas">
+              <a class="hh-a__cta" href="mailto:wes@infiniteroomlabs.com">
+                wes@infiniteroomlabs.com
+                <span aria-hidden="true">→</span>
+              </a>
+              <span class="splash-eta">Full site · Q3 2026</span>
+            </div>
+          </div>
+          <div class="hh-a__footrow">
+            <span><b>Stack</b> PHP · Java · Python · Kotlin · TypeScript</span>
+            <span><b>LLC</b> Kentucky · Est. 2026</span>
+            <span><b>Engagements</b> Remote-first · ET</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="splash-footer">
+      <div class="splash-footer__bar"></div>
+      <div class="splash-footer__inner">
+        <div class="splash-footer__brand">Infinite<br />Room Labs</div>
+        <div class="splash-footer__tag">Automate all the things.</div>
+        <div class="splash-footer__legal">
+          Infinite Room Labs LLC<br />
+          Lexington, KY &middot; &copy; 2026
+        </div>
+      </div>
+    </footer>
+  </div>
+</SplashLayout>
