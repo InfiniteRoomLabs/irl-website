@@ -43,6 +43,27 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   is now self-contained Tailwind utilities; `.logo-combo` removed from
   `shell.css`.
 
+### Splash rollout — pre-launch (D-1..D-6)
+- Public mailto + meta description + JSON-LD `contactPoint.email` + OG card
+  caption swapped from `wes@infiniteroomlabs.com` to
+  `hello@infiniteroomlabs.com`. Wes adds the matching Cloudflare Email
+  Routing rule (forward to personal Gmail) before the splash goes public.
+- Removed "Soft launch" suffix from the nav meta strip; reads "LEX, KY · ET".
+- Reworked hero copy: dropped the "Paid discovery / written milestones / full
+  IP transfer on completion" triplet (recurring AI-pattern phrasing) in favor
+  of "I scope before I build. You own everything when it's done." — same
+  meaning, different voice, doesn't pattern-match across pages.
+- Same anti-pattern-match pass applied to the meta description and the
+  JSON-LD `description` field.
+- Added `scripts/build-og.sh` to regenerate `/public/og-default.png` from
+  `/public/og-default.svg` via Inkscape (auto-bootstraps Bebas Neue + IBM
+  Plex Sans into ~/.fonts on a fresh machine). Wired into `npm run build`
+  as a `prebuild` hook so the OG card stays in sync with the SVG source.
+- Added `docs/plans/2026-05-03-splash-deployment.md` capturing the
+  pre-rollout decisions log, manual Cloudflare dashboard checklist, and
+  follow-up TODOs (move email forwarders into IaC, designer-quality OG card,
+  reintroduce social profile links, DMARC tightening).
+
 ### Splash rollout (post-review)
 Post-review pass against feedback from the content, marketing, and SEO
 specialists before public soft launch:
