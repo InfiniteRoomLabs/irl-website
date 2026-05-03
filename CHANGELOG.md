@@ -52,6 +52,10 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   directory.", etc.) — body copy adapts to match each punchline. Status
   set explicitly to 404. Single CTA back to `/`, secondary mailto
   reference to `hello@infiniteroomlabs.com`.
+- 404 response carries `Cache-Control: public, max-age=300, s-maxage=300`
+  so Cloudflare's edge cache absorbs repeat hits on the same path. Worker
+  cost stays bounded under scanner storms; punchline rotation still works
+  for fresh URLs (each unique path cached independently).
 
 ### Custom domains
 - `wrangler.jsonc` now attaches `infiniteroomlabs.com` and

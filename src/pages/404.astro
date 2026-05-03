@@ -8,6 +8,15 @@ export const prerender = false;
 Astro.response.status = 404;
 Astro.response.statusText = 'Not Found';
 
+// Edge-cache the 404 for 5 minutes per URL so scanner storms hammering
+// the same path don't re-invoke the Worker on every hit. Rotation still
+// works for fresh paths (each unique URL gets cached independently).
+// max-age = browser, s-maxage = CF edge.
+Astro.response.headers.set(
+  'Cache-Control',
+  'public, max-age=300, s-maxage=300',
+);
+
 interface Variation {
   punchline: string;
   body: string;
