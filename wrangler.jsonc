@@ -9,5 +9,9 @@
 	},
 	"observability": {
 		"enabled": true
-	}
+	},
+	"routes": [
+		{ "pattern": "infiniteroomlabs.com", "custom_domain": true },
+		{ "pattern": "www.infiniteroomlabs.com", "custom_domain": true }
+	]
 }

@@ -43,6 +43,19 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   is now self-contained Tailwind utilities; `.logo-combo` removed from
   `shell.css`.
 
+### Custom domains
+- `wrangler.jsonc` now attaches `infiniteroomlabs.com` and
+  `www.infiniteroomlabs.com` as Worker Custom Domains via the `routes`
+  array. `wrangler deploy` provisions the DNS records and TLS certs.
+- Pre-deploy DNS cleanup (manual, Cloudflare dashboard): removed the
+  Porkbun-era A records at apex, the `www` CNAME to Porkbun parking,
+  and the wildcard `*` CNAME to Porkbun parking. SendGrid, MX
+  (Cloudflare Email Routing), DKIM/SPF/DMARC, and ACME challenge
+  records preserved.
+- Follow-up: add a Redirect Rule in the Cloudflare dashboard to send
+  `www.infiniteroomlabs.com/*` to `https://infiniteroomlabs.com/$1`
+  (301 permanent) so apex is the SEO canonical.
+
 ### Splash rollout — pre-launch (D-1..D-6)
 - Public mailto + meta description + JSON-LD `contactPoint.email` + OG card
   caption swapped from `wes@infiniteroomlabs.com` to
