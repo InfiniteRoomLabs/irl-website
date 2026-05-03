@@ -43,6 +43,22 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   is now self-contained Tailwind utilities; `.logo-combo` removed from
   `shell.css`.
 
+### Edge caching for SSR responses
+- Added `src/middleware.ts` to set a default `Cache-Control: public,
+  max-age=300, s-maxage=300` on any SSR response that didn't already pick
+  one. Pages can opt out by setting their own header (the 404 still does).
+  Only applies to GET/HEAD; mutating methods are left untouched.
+- This is the repo-side half of edge caching. The other half is a
+  **Cloudflare Cache Rule** that must be configured in the dashboard:
+  `Rules > Caching Rules > Create rule`, match
+  `(http.host in {"infiniteroomlabs.com" "www.infiniteroomlabs.com"})`,
+  set Cache eligibility to "Eligible for cache" and both Edge TTL and
+  Browser TTL to "Use cache-control header from origin". Without the rule
+  the header is advisory and CF will keep invoking the Worker on every
+  request — which is what was happening with `/.env` (no `cf-cache-status`
+  header in the response, fresh punchline every hit). Tracked as a
+  pre-rollout step in `docs/plans/2026-05-03-splash-deployment.md`.
+
 ### 404 page
 - Added `src/pages/404.astro` — same chrome / hero shape as the splash so
   unmatched routes land somewhere on-brand instead of CF's default error

@@ -123,6 +123,15 @@ or major social push.
       cookie banner, free).
 - [ ] Confirm **Bot Fight Mode is OFF** (or in default low-friction setting)
       so legitimate AI crawlers and Googlebot are not blocked.
+- [ ] **Add a Cache Rule for SSR responses.**
+      `Rules → Caching Rules → Create rule`. Match
+      `(http.host in {"infiniteroomlabs.com" "www.infiniteroomlabs.com"})`.
+      Set cache eligibility to "Eligible for cache" and both Edge TTL and
+      Browser TTL to "Use cache-control header from origin". Without this
+      rule, Worker responses bypass the edge cache entirely (regardless of
+      the Cache-Control header on the response) — every hit invokes the
+      Worker. With it, the middleware-set `s-maxage=300` header takes
+      effect and repeat hits to the same URL serve from edge cache.
 
 ### Repo (already shipped on `main`)
 
