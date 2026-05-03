@@ -1,0 +1,20 @@
+---
+import type { WithContext, Organization } from 'schema-dts';
+
+const schema: WithContext<Organization> = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Infinite Room Labs',
+    url: 'https://infiniteroomlabs.com',
+    description: 'Custom development, system integration, and automation for Central Kentucky businesses.',
+    founder: { '@type': 'Person', name: 'Wes Gilleland' },
+    address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Georgetown',
+        addressRegion: 'KY',
+        addressCountry: 'US',
+    },
+    areaServed: { '@type': 'State', name: 'Kentucky' },
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

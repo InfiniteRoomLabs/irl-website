@@ -1,0 +1,43 @@
+{
+    "name": "irl-website",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/github-cli:1": {}
+    },
+    "forwardPorts": [4321],
+    "portsAttributes": {
+        "4321": {
+            "label": "Astro dev server",
+            "onAutoForward": "notify"
+        }
+    },
+    "postCreateCommand": "npm ci",
+    "remoteUser": "node",
+    "mounts": [
+        "source=irl-website-node-modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "astro-build.astro-vscode",
+                "bradlc.vscode-tailwindcss",
+                "esbenp.prettier-vscode",
+                "dbaeumer.vscode-eslint",
+                "unifiedjs.vscode-mdx",
+                "yoavbls.pretty-ts-errors"
+            ],
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "fish",
+                "editor.formatOnSave": true,
+                "[astro]": {
+                    "editor.defaultFormatter": "esbenp.prettier-vscode"
+                },
+                "[typescript]": {
+                    "editor.defaultFormatter": "esbenp.prettier-vscode"
+                }
+            }
+        }
+    }
+}
