@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="thr-bar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c62828"></stop>
+      <stop offset="50%" stop-color="#1565c0"></stop>
+      <stop offset="100%" stop-color="#c62828"></stop>
+    </linearGradient>
+  </defs>
+  
+  <rect x="0" y="0" width="100" height="100" fill="#0c1a3a"></rect>
+  
+  <rect x="0" y="0" width="100" height="6" fill="url(#thr-bar)"></rect>
+  
+  <rect x="18" y="18" width="3" height="68" fill="#ffffff"></rect>
+  <rect x="79" y="18" width="3" height="68" fill="#ffffff"></rect>
+  <rect x="18" y="18" width="64" height="3" fill="#ffffff"></rect>
+  
+  <path d="M 21 86 L 50 55 L 79 86" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="square"></path>
+  
+  <path d="M 21 18 L 50 55 L 79 18" fill="none" stroke="#ffffff" stroke-width="1" stroke-linecap="square" opacity="0.55"></path>
+</svg>

@@ -1,16 +1,5 @@
-@import '@fontsource/bebas-neue';
-@import '@fontsource-variable/inter';
-
-:root {
-    --font-display: 'Bebas Neue', sans-serif;
-    --font-body: 'Inter Variable', sans-serif;
-
-    /* Fortress palette — adjust to your real values */
-    --color-navy: #0a1929;
-    --color-red: #c8102e;
-    --color-blue: #1e4d8c;
-}
-
-html {
-    font-family: var(--font-body);
-}
+/* Shared foundation imported by BaseLayout — tokens + shell utilities only.
+   Page-specific styles live in pages.css and are imported per-page on the
+   feature/full-site branch. */
+@import './tokens.css';
+@import './shell.css';

@@ -1,0 +1,208 @@
+/* =========================================================================
+   Infinite Room Labs — Design Tokens
+   "Fortress" identity: navy + red + blue, sharp edges, bold type.
+   ========================================================================= */
+
+@font-face {
+  font-family: "Bebas Neue";
+  src: url("/fonts/BebasNeue-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("/fonts/IBMPlexSans-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("/fonts/IBMPlexSans-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("/fonts/IBMPlexSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("/fonts/IBMPlexSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("/fonts/IBMPlexSans-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/fonts/IBMPlexMono-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/fonts/IBMPlexMono-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/fonts/IBMPlexMono-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --irl-navy:          #0c1a3a;
+  --irl-navy-deep:     #060e1f;
+  --irl-navy-mid:      #0f2148;
+  --irl-navy-soft:     #16264f;
+  --irl-white:         #ffffff;
+  --irl-off-white:     #e9eef7;
+  --irl-blue-muted:    #5a8ec7;
+  --irl-blue-slate:    #4a6a8a;
+  --irl-blue:          #1565c0;
+  --irl-blue-deep:     #0d4a94;
+  --irl-red:           #c62828;
+  --irl-red-deep:      #9e1f1f;
+  --irl-red-bright:    #e53935;
+
+  --irl-rule:          rgba(255, 255, 255, 0.08);
+  --irl-rule-strong:   rgba(255, 255, 255, 0.18);
+  --irl-glow-red:      radial-gradient(
+                          600px 400px at 100% 0%,
+                          rgba(198, 40, 40, 0.18),
+                          transparent 60%);
+
+  --irl-gradient-bar:
+      linear-gradient(90deg, #c62828 0%, #1565c0 50%, #c62828 100%);
+
+  --bg:           var(--irl-navy);
+  --bg-deep:      var(--irl-navy-deep);
+  --bg-elevated:  var(--irl-navy-mid);
+  --bg-card:      var(--irl-navy-soft);
+
+  --fg1:          var(--irl-white);
+  --fg2:          var(--irl-blue-muted);
+  --fg3:          var(--irl-blue-slate);
+  --fg-muted:     #30466a;
+
+  --accent:       var(--irl-red);
+  --accent-hover: var(--irl-red-bright);
+  --accent-press: var(--irl-red-deep);
+  --accent-2:     var(--irl-blue);
+  --accent-2-hover: #1e78d4;
+  --accent-2-press: var(--irl-blue-deep);
+
+  --success:      #2e8b57;
+  --warning:      #d89e2a;
+  --danger:       var(--irl-red);
+  --info:         var(--irl-blue);
+
+  --font-display: "Bebas Neue", "Oswald", "Arial Narrow", sans-serif;
+  --font-sans:    "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --fs-display:   96px;
+  --fs-h1:        64px;
+  --fs-h2:        44px;
+  --fs-h3:        28px;
+  --fs-h4:        20px;
+  --fs-lg:        18px;
+  --fs-body:      16px;
+  --fs-sm:        14px;
+  --fs-xs:        12px;
+  --fs-eyebrow:   13px;
+
+  --lh-tight:     1.05;
+  --lh-snug:      1.2;
+  --lh-body:      1.55;
+  --lh-loose:     1.75;
+
+  --ls-display:   0.08em;
+  --ls-eyebrow:   0.18em;
+  --ls-mono:      0.02em;
+  --ls-body:      0em;
+  --ls-tight:     -0.01em;
+
+  --sp-0:    0px;
+  --sp-1:    4px;
+  --sp-2:    8px;
+  --sp-3:    12px;
+  --sp-4:    16px;
+  --sp-5:    24px;
+  --sp-6:    32px;
+  --sp-7:    48px;
+  --sp-8:    64px;
+  --sp-9:    96px;
+  --sp-10:   128px;
+
+  --radius-0:    0px;
+  --radius-1:    2px;
+  --radius-2:    4px;
+  --radius-pill: 999px;
+
+  --bw-hair:     1px;
+  --bw-rule:     2px;
+  --bw-bar:      3px;
+
+  --shadow-0:    none;
+  --shadow-1:    0 1px 0 0 rgba(0,0,0,0.35);
+  --shadow-2:    0 8px 24px -12px rgba(0,0,0,0.55);
+  --shadow-3:    0 18px 48px -20px rgba(0,0,0,0.65);
+  --shadow-inset: inset 0 1px 0 0 rgba(255,255,255,0.04);
+
+  --dur-1: 120ms;
+  --dur-2: 200ms;
+  --dur-3: 320ms;
+  --ease-standard: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-in:       cubic-bezier(0.55, 0.05, 0.68, 0.19);
+  --ease-out:      cubic-bezier(0.16, 0.84, 0.44, 1);
+
+  --container-max: 1280px;
+  --container-wide: 1440px;
+  --gutter:        24px;
+  --z-nav:         100;
+  --z-overlay:     200;
+  --z-modal:       300;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0; padding: 0;
+  background: var(--bg);
+  color: var(--fg3);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; border: 0; cursor: pointer; background: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--fg2);
+  outline-offset: 2px;
+}

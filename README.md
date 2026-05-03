@@ -2,12 +2,12 @@
 
 ## Commands
 
-| Command           | What it does                                  |
-| ----------------- | --------------------------------------------- |
-| \`npm run dev\`     | Vite dev server on http://localhost:4321      |
-| \`npm run build\`   | Production build to ./dist                    |
-| \`npm run preview\` | Serves ./dist locally to verify the build     |
-| \`npm run astro\`   | Run any astro CLI command                     |
+| Command             | What it does                              |
+|---------------------|-------------------------------------------|
+| \`npm run dev\`     | Vite dev server on http://localhost:4321  |
+| \`npm run build\`   | Production build to ./dist                |
+| \`npm run preview\` | Serves ./dist locally to verify the build |
+| \`npm run astro\`   | Run any astro CLI command                 |
 
 ## Structure
 

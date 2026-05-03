@@ -1,0 +1,65 @@
+---
+import ThresholdMark from './ThresholdMark.astro';
+
+interface NavLink {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  links?: NavLink[];
+  meta?: string;
+}
+
+const { links = [], meta = 'LEX, KY · ET' } = Astro.props;
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isActive = (href: string) => path === href || path.startsWith(href + '/');
+const showLinks = links.length > 0;
+---
+<header class="s-nav">
+  <div class="s-nav__bar"></div>
+  <div class="s-nav__inner">
+    <a class="s-nav__brand" href="/">
+      <ThresholdMark size={22} />
+      <span class="full">Infinite Room Labs</span>
+      <span class="short">IRL</span>
+    </a>
+    {showLinks && (
+      <nav class="s-nav__links" aria-label="Primary" data-nav-links>
+        {links.map((l) => (
+          <a
+            class:list={['s-nav__link', { 'is-active': isActive(l.href) }]}
+            href={l.href}
+            aria-current={isActive(l.href) ? 'page' : undefined}
+          >
+            {l.label}
+          </a>
+        ))}
+      </nav>
+    )}
+    <div class="s-nav__meta" style={!showLinks ? 'margin-left: auto;' : ''}>{meta}</div>
+    {showLinks && (
+      <button
+        class="s-nav__menu"
+        aria-expanded="false"
+        aria-label="Toggle menu"
+        data-nav-toggle
+      >
+        Menu
+      </button>
+    )}
+  </div>
+</header>
+
+{showLinks && (
+  <script>
+    const toggle = document.querySelector<HTMLButtonElement>('[data-nav-toggle]');
+    const links = document.querySelector<HTMLElement>('[data-nav-links]');
+    toggle?.addEventListener('click', () => {
+      const open = links?.classList.toggle('is-open') ?? false;
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.textContent = open ? 'Close' : 'Menu';
+    });
+  </script>
+)}

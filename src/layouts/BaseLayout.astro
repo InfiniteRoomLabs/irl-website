@@ -1,0 +1,62 @@
+---
+import { SEO } from 'astro-seo';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import OrganizationSchema from '../components/seo/OrganizationSchema.astro';
+import '../styles/global.css';
+
+interface NavLink {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  title: string;
+  description?: string;
+  includeOrgSchema?: boolean;
+  navLinks?: NavLink[];
+  footerSitemapLinks?: NavLink[];
+  showFooterLegal?: boolean;
+}
+
+const {
+  title,
+  description = 'Solo technical consultancy for engineering teams, MSPs, and small businesses. Legacy modernization, CI/CD rescue, infrastructure as code, MSP integration, agentic AI infrastructure — plus websites, e-commerce, and internal tools when the fit is right.',
+  includeOrgSchema = false,
+  navLinks = [],
+  footerSitemapLinks = [],
+  showFooterLegal = false,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <SEO
+      title={title}
+      description={description}
+      canonical={canonical}
+      openGraph={{
+        basic: {
+          title,
+          type: 'website',
+          image: '/favicon.svg',
+          url: canonical,
+        },
+        optional: { siteName: 'Infinite Room Labs', description },
+      }}
+    />
+    {includeOrgSchema && <OrganizationSchema />}
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <Nav links={navLinks} />
+    <slot />
+    <Footer sitemapLinks={footerSitemapLinks} showLegal={showFooterLegal} />
+  </body>
+</html>
