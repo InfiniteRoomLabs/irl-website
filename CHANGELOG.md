@@ -59,6 +59,9 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   `/public/og-default.svg` via Inkscape (auto-bootstraps Bebas Neue + IBM
   Plex Sans into ~/.fonts on a fresh machine). Wired into `npm run build`
   as a `prebuild` hook so the OG card stays in sync with the SVG source.
+  When neither Inkscape nor rsvg-convert is installed (e.g. Cloudflare
+  Pages build environment), the script logs a skip message and exits 0,
+  letting CI rely on the committed PNG.
 - Added `docs/plans/2026-05-03-splash-deployment.md` capturing the
   pre-rollout decisions log, manual Cloudflare dashboard checklist, and
   follow-up TODOs (move email forwarders into IaC, designer-quality OG card,

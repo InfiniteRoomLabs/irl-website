@@ -70,8 +70,6 @@ ensure_fonts() {
   fc-cache -f >/dev/null 2>&1 || true
 }
 
-ensure_fonts
-
 # --- Renderer --------------------------------------------------------------
 
 render_with_inkscape() {
@@ -90,11 +88,21 @@ render_with_rsvg() {
 }
 
 if command -v inkscape >/dev/null 2>&1; then
+  ensure_fonts
   render_with_inkscape
 elif command -v rsvg-convert >/dev/null 2>&1; then
+  ensure_fonts
   render_with_rsvg
 else
-  err "neither inkscape nor rsvg-convert is available"
+  # No renderer on this host (typical CI / Cloudflare Pages build). The
+  # committed PNG at $OG_PNG is the deploy artifact; this hook is a
+  # local-dev convenience to keep the PNG in sync with the SVG source.
+  # Skip cleanly so `npm run build` succeeds in CI.
+  log "skip: no renderer available (inkscape / rsvg-convert), using committed $OG_PNG"
+  if [[ -f "$OG_PNG" ]]; then
+    exit 0
+  fi
+  err "no renderer AND no committed PNG at $OG_PNG -- cannot continue"
   err "install with: sudo apt-get install -y inkscape  # or  librsvg2-bin"
   exit 1
 fi
