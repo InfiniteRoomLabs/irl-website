@@ -1,0 +1,59 @@
+/* ================================================================
+   Tailwind v4 @theme — exposes Fortress tokens as utility classes.
+   Semantic names so utilities read like the design system speaks:
+     bg-surface, text-fg-2, border-rule, font-display, tracking-eyebrow,
+     bg-gradient-bar, bg-glow-red, max-w-shell, etc.
+   Keeps the existing :root CSS vars in tokens.css authoritative;
+   this block only registers what tailwind needs to emit utilities.
+   ================================================================ */
+
+@theme {
+  /* Surfaces */
+  --color-surface:           #0c1a3a;
+  --color-surface-deep:      #060e1f;
+  --color-surface-elevated:  #0f2148;
+  --color-surface-card:      #16264f;
+
+  /* Foregrounds */
+  --color-fg-1:        #ffffff;
+  --color-fg-2:        #5a8ec7;
+  --color-fg-3:        #4a6a8a;
+  --color-fg-muted:    #30466a;
+
+  /* Accents */
+  --color-accent:        #c62828;
+  --color-accent-hover:  #e53935;
+  --color-accent-press:  #9e1f1f;
+  --color-accent-2:      #1565c0;
+  --color-accent-2-deep: #0d4a94;
+
+  /* Rules */
+  --color-rule:         rgba(255, 255, 255, 0.08);
+  --color-rule-strong:  rgba(255, 255, 255, 0.18);
+
+  /* Typography */
+  --font-display: "Bebas Neue", "Oswald", "Arial Narrow", sans-serif;
+  --font-sans:    "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --tracking-display:  0.08em;
+  --tracking-eyebrow:  0.18em;
+  --tracking-wide-2:   0.16em;
+  --tracking-wider-2:  0.20em;
+  --tracking-widest-2: 0.24em;
+  --tracking-mono:     0.02em;
+  --tracking-tight-1:  -0.01em;
+
+  /* Layout */
+  --container-shell: 1280px;
+  --container-wide:  1440px;
+
+  /* Background images */
+  --background-image-gradient-bar:
+    linear-gradient(90deg, #c62828 0%, #1565c0 50%, #c62828 100%);
+  --background-image-glow-red:
+    radial-gradient(720px 480px at 100% -10%, rgba(198, 40, 40, 0.22), transparent 60%);
+
+  /* Motion */
+  --ease-standard: cubic-bezier(0.22, 0.61, 0.36, 1);
+}

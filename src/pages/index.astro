@@ -3,67 +3,84 @@ import SplashLayout from '../layouts/SplashLayout.astro';
 import LogoCombo from '../components/LogoCombo.astro';
 ---
 <SplashLayout title="Infinite Room Labs — Automate all the things.">
-  <div class="splash hh-frame">
-    <header class="splash-nav">
-      <div class="splash-nav__bar"></div>
-      <div class="splash-nav__inner">
-        <a class="splash-nav__brand" href="/">
+  <div class="splash flex flex-col min-h-screen bg-surface text-fg-3 font-sans antialiased">
+
+    <header class="bg-surface border-b border-rule shrink-0">
+      <div class="h-[3px] bg-gradient-bar"></div>
+      <div class="max-w-shell mx-auto w-full px-12 py-[18px] flex items-center gap-4 max-md:px-5 max-md:py-3.5">
+        <a href="/" class="inline-flex items-center no-underline">
           <LogoCombo markSize={22} />
         </a>
-        <span class="splash-nav__meta">LEX, KY · ET · Soft launch</span>
+        <span class="ml-auto font-mono text-[10px] tracking-eyebrow text-fg-muted uppercase max-md:hidden">
+          LEX, KY · ET · Soft launch
+        </span>
       </div>
     </header>
 
-    <main id="main">
-      <section class="hh-a">
-        <div class="hh-a__glow"></div>
-        <div class="hh-a__inner">
-          <div class="hh-a__eyebrow">
+    <main id="main" class="flex-1 flex flex-col">
+      <section class="relative flex-1 px-12 pt-20 pb-16 overflow-hidden flex flex-col max-md:px-5 max-md:pt-10 max-md:pb-8">
+        <div class="absolute inset-0 pointer-events-none bg-glow-red"></div>
+
+        <div class="relative max-w-shell mx-auto w-full flex-1 flex flex-col">
+
+          <div class="font-mono text-[11px] tracking-widest-2 text-fg-2 flex gap-4 items-center max-md:text-[10px] max-md:gap-2.5 max-md:flex-wrap">
+            <span class="block w-8 h-px bg-accent max-md:hidden" aria-hidden="true"></span>
             <span>Infinite Room Labs</span>
             <span>·</span>
             <span>Solo technical consultancy</span>
             <span>·</span>
             <span>Lexington, KY</span>
           </div>
-          <h1 class="hh-a__title">
+
+          <h1 class="font-display font-normal text-fg-1 mt-7 leading-[0.86] tracking-[0.02em] uppercase text-balance text-[clamp(72px,13vw,192px)]">
             Automate<br />
-            <span class="all">all</span> the things.
+            <span class="text-accent">all</span> the things.
           </h1>
-          <div class="hh-a__rule"></div>
-          <div class="hh-a__lower">
-            <p class="hh-a__pull">
-              The full site is shipping soon. For now: <strong>solo
-              technical consultancy out of Lexington, KY.</strong> Paid
-              discovery, written milestones, you own everything at the end.
-              Email is the front door.
+
+          <div class="h-[3px] bg-gradient-bar mt-9 w-full"></div>
+
+          <div class="mt-9 grid grid-cols-2 gap-16 items-end flex-1 max-md:grid-cols-1 max-md:gap-7 max-md:items-stretch">
+            <p class="font-sans font-extralight text-[clamp(17px,1.5vw,22px)] leading-[1.45] text-fg-2 max-w-[56ch] m-0">
+              The full site is shipping soon. For now: <strong class="text-fg-1 font-medium">solo
+              technical consultancy out of Lexington, KY.</strong> Paid discovery,
+              written milestones, you own everything at the end. Email is the front door.
             </p>
-            <div class="hh-a__ctas">
-              <a class="hh-a__cta" href="mailto:wes@infiniteroomlabs.com">
+
+            <div class="flex flex-col gap-3.5 items-end max-md:items-start">
+              <a
+                href="mailto:wes@infiniteroomlabs.com"
+                class="inline-flex items-center gap-3.5 bg-accent hover:bg-accent-hover text-fg-1 font-sans font-semibold text-sm tracking-[0.04em] uppercase px-6 py-[18px] no-underline transition-colors duration-100 ease-standard max-md:w-full max-md:justify-between max-md:px-5 max-md:py-4"
+              >
                 wes@infiniteroomlabs.com
                 <span aria-hidden="true">→</span>
               </a>
-              <span class="splash-eta">Full site · Q3 2026</span>
+              <span class="font-mono text-[11px] tracking-eyebrow uppercase text-fg-muted">
+                Full site · Q3 2026
+              </span>
             </div>
           </div>
-          <div class="hh-a__footrow">
-            <span><b>Stack</b> PHP · Java · Python · Kotlin · TypeScript</span>
-            <span><b>LLC</b> Kentucky · Est. 2026</span>
-            <span><b>Engagements</b> Remote-first · ET</span>
+
+          <div class="mt-12 pt-5 border-t border-rule flex justify-between items-baseline font-mono text-[10px] tracking-wider-2 uppercase text-fg-muted max-md:flex-col max-md:items-start max-md:gap-2 max-md:mt-8 max-md:text-[9px]">
+            <span><b class="text-fg-2 font-medium mr-2">Stack</b> PHP · Java · Python · Kotlin · TypeScript</span>
+            <span><b class="text-fg-2 font-medium mr-2">LLC</b> Kentucky · Est. 2026</span>
+            <span><b class="text-fg-2 font-medium mr-2">Engagements</b> Remote-first · ET</span>
           </div>
+
         </div>
       </section>
     </main>
 
-    <footer class="splash-footer">
-      <div class="splash-footer__bar"></div>
-      <div class="splash-footer__inner">
-        <div class="splash-footer__brand">Infinite<br />Room Labs</div>
-        <div class="splash-footer__tag">Automate all the things.</div>
-        <div class="splash-footer__legal">
+    <footer class="border-t border-rule bg-surface mt-auto">
+      <div class="h-[3px] bg-gradient-bar"></div>
+      <div class="max-w-shell mx-auto w-full px-12 py-9 grid grid-cols-[auto_1fr_auto] gap-8 items-center max-md:grid-cols-1 max-md:gap-4 max-md:px-5 max-md:py-7">
+        <div class="font-display text-[22px] tracking-[0.16em] text-fg-1 uppercase leading-[1.05]">Infinite<br />Room Labs</div>
+        <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-fg-muted">Automate all the things.</div>
+        <div class="font-mono text-[11px] tracking-eyebrow uppercase text-fg-muted text-right leading-[1.6] max-md:text-left">
           Infinite Room Labs LLC<br />
-          Lexington, KY &middot; &copy; 2026
+          Lexington, KY · &copy; 2026
         </div>
       </div>
     </footer>
+
   </div>
 </SplashLayout>

@@ -1,5 +1,8 @@
-/* Shared foundation imported by BaseLayout — tokens + shell utilities only.
+/* Shared foundation imported by every layout.
+   Order: Tailwind base → Fortress tokens (CSS vars + @theme) → shell utilities.
    Page-specific styles live in pages.css and are imported per-page on the
    feature/full-site branch. */
+@import 'tailwindcss';
 @import './tokens.css';
+@import './theme.css';
 @import './shell.css';

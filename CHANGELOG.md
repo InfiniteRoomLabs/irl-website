@@ -31,6 +31,17 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   feature instead.
 - `src/styles/global.css` reduced to a thin import seam over tokens + shell.
 - `.gitignore` now excludes `.wrangler/` local state.
+- Wired up Tailwind v4 (`@import 'tailwindcss'` was missing from the CSS
+  entry, so utilities weren't being emitted at all). Added
+  `src/styles/theme.css` with a `@theme` block exposing Fortress tokens
+  as utility classes (`bg-surface`, `text-fg-2`, `border-rule`,
+  `font-display`, `tracking-eyebrow`, `bg-gradient-bar`, `bg-glow-red`,
+  `max-w-shell`, `ease-standard`).
+- Splash page rewritten to use Tailwind utilities for layout, spacing,
+  typography, and color, with custom CSS reduced to a single
+  `prefers-reduced-motion` block scoped to `.splash`. `LogoCombo.astro`
+  is now self-contained Tailwind utilities; `.logo-combo` removed from
+  `shell.css`.
 
 ### Notes
 - The full multi-page site (services, how-i-work, pricing, faq, ecosystem,
