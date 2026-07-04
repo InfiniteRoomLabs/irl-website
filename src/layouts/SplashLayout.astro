@@ -1,17 +1,20 @@
 ---
 import { SEO } from 'astro-seo';
 import OrganizationSchema from '../components/seo/OrganizationSchema.astro';
+import GithubRibbon from '../components/GithubRibbon.astro';
 import '../styles/global.css';
 import '../styles/splash.css';
 
 interface Props {
   title: string;
   description?: string;
+  sourcePath?: string;
 }
 
 const {
   title,
   description = 'Solo technical consultancy in Lexington, KY — remote-friendly. Legacy modernization, CI/CD rescue, infrastructure as code, MSP integration, agentic AI infrastructure. Scoped before we build. Client owns everything on completion. hello@infiniteroomlabs.com',
+  sourcePath = 'src/pages/index.astro',
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
@@ -42,5 +45,6 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
   <body>
     <a href="#main" class="skip-link">Skip to content</a>
     <slot />
+    <GithubRibbon path={sourcePath} />
   </body>
 </html>

@@ -3,6 +3,7 @@ import { SEO } from 'astro-seo';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import OrganizationSchema from '../components/seo/OrganizationSchema.astro';
+import GithubRibbon from '../components/GithubRibbon.astro';
 import '../styles/global.css';
 
 interface NavLink {
@@ -17,6 +18,7 @@ interface Props {
   navLinks?: NavLink[];
   footerSitemapLinks?: NavLink[];
   showFooterLegal?: boolean;
+  sourcePath?: string;
 }
 
 const {
@@ -26,6 +28,7 @@ const {
   navLinks = [],
   footerSitemapLinks = [],
   showFooterLegal = false,
+  sourcePath = 'src/pages/index.astro',
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
@@ -58,5 +61,6 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
     <Nav links={navLinks} />
     <slot />
     <Footer sitemapLinks={footerSitemapLinks} showLegal={showFooterLegal} />
+    <GithubRibbon path={sourcePath} />
   </body>
 </html>

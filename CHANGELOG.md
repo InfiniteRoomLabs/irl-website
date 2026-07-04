@@ -7,6 +7,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [Unreleased]
 
 ### Added
+- `GithubRibbon.astro` — fixed bottom-right "View Source" ribbon on every page, linking to the exact source file for that page on GitHub. Wired into both `SplashLayout.astro` (live pages) and `BaseLayout.astro` (future multi-page site) via a `sourcePath` prop.
 - Fortress design system foundation: tokens (`src/styles/tokens.css`), shell
   utilities (`src/styles/shell.css`), and self-hosted IBM Plex Sans/Mono +
   Bebas Neue fonts in `public/fonts/`.

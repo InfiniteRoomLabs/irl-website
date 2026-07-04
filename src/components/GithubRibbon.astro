@@ -1,0 +1,40 @@
+---
+interface Props {
+  path: string;
+}
+
+const { path } = Astro.props;
+const href = `https://github.com/InfiniteRoomLabs/irl-website/blob/main/${path}`;
+---
+<a class="gh-ribbon" href={href} target="_blank" rel="noopener noreferrer" aria-label="View source for this page on GitHub">
+  View Source
+</a>
+
+<style>
+  .gh-ribbon {
+    position: fixed;
+    bottom: 38px;
+    right: -48px;
+    width: 200px;
+    z-index: 200;
+    transform: rotate(-45deg);
+    background: var(--bg-elevated);
+    color: var(--fg2);
+    border-top: 1px solid var(--irl-rule-strong);
+    border-bottom: 1px solid var(--irl-rule-strong);
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 7px 0;
+    transition: background var(--dur-1) var(--ease-standard), color var(--dur-1) var(--ease-standard);
+  }
+  .gh-ribbon:hover { background: var(--accent); color: #fff; }
+
+  @media (max-width: 640px) {
+    .gh-ribbon { bottom: 30px; right: -54px; width: 180px; font-size: 10px; }
+  }
+</style>
