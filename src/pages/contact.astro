@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHead from '../components/PageHead.astro';
+import CTABlock from '../components/CTABlock.astro';
+import { NAV_LINKS } from '../nav';
+import '../styles/prose.css';
+---
+<BaseLayout
+  title="Contact — Infinite Room Labs"
+  description="Start with an email to hello@infiniteroomlabs.com. No forms, no discovery-call gauntlet. Describe your problem and get a written reply."
+  navLinks={NAV_LINKS}
+  footerSitemapLinks={NAV_LINKS}
+  sourcePath="src/pages/contact.astro"
+>
+  <main id="main">
+    <PageHead
+      eyebrow="Contact"
+      title="Start with<br />an email."
+      sub="No forms. No calendar links. No discovery-call gauntlet. Describe the problem in writing and you will get a considered reply in writing."
+    />
+
+    <div class="max-w-shell mx-auto px-12 max-md:px-5">
+
+      <section class="grid grid-cols-[280px_minmax(0,1fr)] gap-14 py-12 border-b border-rule max-md:grid-cols-1 max-md:gap-5 max-md:py-8">
+        <div>
+          <div class="font-mono text-[11px] tracking-eyebrow uppercase text-accent-2">/01 — What to include</div>
+          <h2 class="font-display font-normal text-fg-1 uppercase mt-3 leading-[0.95] text-[clamp(30px,3.5vw,44px)]">Give me the<br />shape of it.</h2>
+        </div>
+        <div class="prose-irl">
+          <ul>
+            <li><strong>The system that hurts.</strong> What breaks, how often, and who feels it.</li>
+            <li><strong>The stack.</strong> Languages, hosting, deployment story. Even if the story is "Dave SFTPs it up on Fridays."</li>
+            <li><strong>The outcome you want.</strong> Faster deploys, lower hosting bills, an exit from a legacy platform, an audit before you commit.</li>
+            <li><strong>Constraints, if you know them.</strong> Timeline shape, budget shape, compliance context. Rough is fine.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="grid grid-cols-[280px_minmax(0,1fr)] gap-14 py-12 max-md:grid-cols-1 max-md:gap-5 max-md:py-8">
+        <div>
+          <div class="font-mono text-[11px] tracking-eyebrow uppercase text-accent-2">/02 — What happens next</div>
+          <h2 class="font-display font-normal text-fg-1 uppercase mt-3 leading-[0.95] text-[clamp(30px,3.5vw,44px)]">A reply,<br />in writing.</h2>
+        </div>
+        <div class="prose-irl">
+          <p>You will get a written response. Usually it comes with clarifying questions, sometimes with "this isn't a fit" and a pointer to someone better suited. No hard sell either way.</p>
+          <p>If it is a fit, the next artifact is a <strong>written scope</strong>: what gets built, what it costs, what you own when it is done. Scoped before built, always.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <CTABlock eyebrow="The address" title="hello@<br />infiniteroomlabs.com">
+      One inbox, read by the person who does the work.
+    </CTABlock>
+  </main>
+</BaseLayout>
