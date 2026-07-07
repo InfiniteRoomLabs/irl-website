@@ -11,6 +11,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Contrast fix: `--fg-3` / `--irl-blue-slate` raised `#4a6a8a` → `#8fa6c8` (3.0:1 → 6.9:1) and `--fg-muted` raised `#30466a` → `#7d94b8` (1.8:1 → 5.6:1) in `tokens.css` and `theme.css`, bringing mono metadata/footer text to WCAG AA.
 
 ### Added
+- Multi-page site: `/about` (three-section narrative + pull quote), `/projects` gallery + `/projects/[slug]` detail pages driven by a new `projects` content collection (claudesync, agent-ops, homelab-platform, featmap-fork), and `/contact` (no-form, qualification copy). New `PageHead`, `CTABlock`, `ProjectCard` components, `src/styles/prose.css` for MDX bodies, and `src/nav.ts` shared nav constant; splash header now uses the `Nav` component with links. All copy passed human-voice lint and public-copy-guard scans.
 - `GithubRibbon.astro` — fixed bottom-right "View Source" ribbon on every page, linking to the exact source file for that page on GitHub. Wired into both `SplashLayout.astro` (live pages) and `BaseLayout.astro` (future multi-page site) via a `sourcePath` prop.
 - Fortress design system foundation: tokens (`src/styles/tokens.css`), shell
   utilities (`src/styles/shell.css`), and self-hosted IBM Plex Sans/Mono +

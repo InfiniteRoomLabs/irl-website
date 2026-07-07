@@ -24,7 +24,12 @@
   font-weight: 500;
 }
 .prose-irl a {
-  color: var(--accent-2-hover);
+  color: var(--fg2);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-irl a:hover {
+  color: var(--fg1);
 }
 .prose-irl ul {
   padding-left: 1.2em;
