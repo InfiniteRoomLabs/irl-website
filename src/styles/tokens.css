@@ -77,7 +77,7 @@
   --irl-white:         #ffffff;
   --irl-off-white:     #e9eef7;
   --irl-blue-muted:    #5a8ec7;
-  --irl-blue-slate:    #4a6a8a;
+  --irl-blue-slate:    #8fa6c8;
   --irl-blue:          #1565c0;
   --irl-blue-deep:     #0d4a94;
   --irl-red:           #c62828;
@@ -102,7 +102,7 @@
   --fg1:          var(--irl-white);
   --fg2:          var(--irl-blue-muted);
   --fg3:          var(--irl-blue-slate);
-  --fg-muted:     #30466a;
+  --fg-muted:     #7d94b8;
 
   --accent:       var(--irl-red);
   --accent-hover: var(--irl-red-bright);

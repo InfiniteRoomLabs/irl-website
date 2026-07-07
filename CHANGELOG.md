@@ -6,6 +6,10 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+- Splash hero repositioned toward DevOps/platform engineering: new positioning subhead (reproducible systems, zero-downtime migrations, zero-trust Terraform, agentic-with-review stance), `Platform` and `Range` metadata rows replace the language-list `Stack` row, page title updated, "Full site · Q3 2026" teaser removed.
+- Contrast fix: `--fg-3` / `--irl-blue-slate` raised `#4a6a8a` → `#8fa6c8` (3.0:1 → 6.9:1) and `--fg-muted` raised `#30466a` → `#7d94b8` (1.8:1 → 5.6:1) in `tokens.css` and `theme.css`, bringing mono metadata/footer text to WCAG AA.
+
 ### Added
 - `GithubRibbon.astro` — fixed bottom-right "View Source" ribbon on every page, linking to the exact source file for that page on GitHub. Wired into both `SplashLayout.astro` (live pages) and `BaseLayout.astro` (future multi-page site) via a `sourcePath` prop.
 - Fortress design system foundation: tokens (`src/styles/tokens.css`), shell
