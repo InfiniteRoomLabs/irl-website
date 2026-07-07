@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHead from '../../components/PageHead.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import { NAV_LINKS } from '../../nav';
+
+const projects = (await getCollection('projects')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+<BaseLayout
+  title="Projects — Infinite Room Labs"
+  description="Four builds that show the systems thinking behind Infinite Room Labs: agent tooling, a governed plugin marketplace, an operated Kubernetes platform, and an upstream fork done right."
+  navLinks={NAV_LINKS}
+  footerSitemapLinks={NAV_LINKS}
+  sourcePath="src/pages/projects/index.astro"
+>
+  <main id="main">
+    <PageHead
+      eyebrow="Projects"
+      title="Systems,<br />not snippets."
+      sub="Each of these exists because a system was missing. Together they show how I work: map the unknown, encode the process, run the result."
+    />
+    <section class="px-12 py-10 max-md:px-5 max-md:py-6">
+      <div class="max-w-shell mx-auto grid grid-cols-2 gap-6 max-md:grid-cols-1">
+        {projects.map((project) => <ProjectCard project={project} />)}
+      </div>
+    </section>
+    <CTABlock title="Want this kind of<br />thinking on your stack?">
+      Describe the system that hurts. I will reply in writing.
+    </CTABlock>
+  </main>
+</BaseLayout>

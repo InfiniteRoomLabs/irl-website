@@ -1,0 +1,18 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+const { project } = Astro.props;
+const { title, tagline, summary, tech } = project.data;
+---
+<a
+  href={`/projects/${project.id}/`}
+  class="flex flex-col border border-rule bg-surface-elevated p-8 no-underline hover:border-rule-strong transition-colors duration-100 ease-standard max-md:p-5"
+>
+  <h3 class="font-display font-normal text-[28px] tracking-[0.06em] uppercase text-fg-1 m-0">{title}</h3>
+  <div class="font-mono text-[11px] tracking-eyebrow uppercase text-accent-2 mt-2">{tagline}</div>
+  <p class="font-sans font-extralight text-[16px] leading-[1.5] text-fg-2 mt-4 mb-0 flex-1">{summary}</p>
+  <div class="font-mono text-[10px] tracking-wider-2 uppercase text-fg-muted mt-6">{tech.join(' · ')}</div>
+</a>
