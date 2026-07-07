@@ -1,0 +1,25 @@
+---
+title: featmap fork
+tagline: Teaching someone else's app to speak agent
+summary: An upstream open-source story-mapping tool, extended with an MCP server and API-key authentication so AI agents can operate story maps first-class. A study in extending a codebase in its own idiom.
+role: Fork maintainer
+tech: [Go, React, MCP, SQL]
+repoUrl: https://github.com/InfiniteRoomLabs/featmap
+order: 4
+---
+
+## The problem
+
+Story mapping is a thinking tool, and agents are increasingly part of the thinking. Upstream featmap is a solid Go + React story-mapping app with no API surface an agent could use. Browser only, session-authenticated.
+
+## The system
+
+The fork adds an agent-grade surface without disturbing the product underneath.
+
+- An MCP server exposes story maps end to end (workflows, features, milestones, personas), including the bulk operations agents actually need: create fifty features in one call, not fifty calls.
+- API keys are account-scoped, hashed at rest, and presented as bearer tokens. Workspace selection is a per-call argument, so one key serves any workspace the account can reach.
+- The additions follow the existing codebase's structure and conventions, keeping the fork rebaseable instead of letting it drift into a hostile divergence.
+
+## Why it matters
+
+Most engineering is not greenfield. The daily job is reading an unfamiliar codebase and extending it without breaking its assumptions. This is that job, in public.

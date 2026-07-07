@@ -1,0 +1,27 @@
+---
+title: claudesync
+tagline: A typed bridge to an API that does not officially exist
+summary: claude.ai has no public API for its web conversations, projects, or artifacts. claudesync maps that unofficial surface into a typed TypeScript SDK, a CLI, and an MCP server, so the same contract serves humans and agents.
+role: Author
+tech: [TypeScript, MCP, Docker, monorepo]
+repoUrl: https://github.com/InfiniteRoomLabs/claudesync
+order: 1
+---
+
+## The problem
+
+Everything you write in claude.ai lives behind a web app with no official API. Conversations, projects, artifacts: all of it. If you want your own data in your own workflows, you get a browser tab and a copy button.
+
+## The system
+
+claudesync treats the unofficial API as a contract worth engineering against. Map the surface once, type it, then let every consumer share that one layer.
+
+- The SDK is a typed TypeScript client that owns authentication (session cookie handling) and the request surface. Nothing talks to the raw API twice.
+- The CLI walks your organizations and projects, lists conversations, and pulls content and artifacts to disk.
+- The MCP server exposes the same operations to AI agents, so an agent can read claude.ai history as a first-class tool.
+
+Packaged with Docker; setup is one command.
+
+## Why it matters
+
+Undocumented systems are still systems. The job here was making an unknown surface knowable. Reverse-engineer the endpoints. Encode them as types, so drift shows up at compile time instead of in production. Then build tooling other workflows can lean on.

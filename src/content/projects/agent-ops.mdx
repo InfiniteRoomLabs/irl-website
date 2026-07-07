@@ -1,0 +1,25 @@
+---
+title: agent-ops
+tagline: A plugin marketplace that makes AI agents follow process
+summary: A Claude Code plugin marketplace organizing agents, skills, commands, and hooks by business domain, with a registry index and gated workflows. Process encoded as enforceable structure, not tribal knowledge.
+role: Author
+tech: [Claude Code, plugins, YAML registry, hooks]
+repoUrl: https://github.com/InfiniteRoomLabs/agent-ops
+order: 2
+---
+
+## The problem
+
+Agentic coding fails the way undisciplined teams fail: skipped review, drive-by commits, silent scope creep, conventions that live in one person's head. Asking an agent nicely to be careful is hope. It is not engineering.
+
+## The system
+
+agent-ops is a Claude Code plugin marketplace. Plugins are organized by business domain, and each one contributes agents, skills, commands, hooks.
+
+- A single `registry.yaml` catalogs every active component with tags, so humans and agents alike can discover what exists and what it is for.
+- Pre-tool-use hooks block failure modes outright. A commit to a protected branch without a changelog entry simply does not run. The agent is not asked to behave; the system refuses the misbehavior.
+- Gated workflows chain multi-step processes (spec, plan, implement, review) where each gate must pass before the next opens.
+
+## Why it matters
+
+The interesting problem in agentic engineering is not making agents capable. It is making them governable. That is the difference between using AI and operating it.

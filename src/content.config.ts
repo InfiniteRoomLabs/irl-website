@@ -47,4 +47,17 @@ const faqs = defineCollection({
     }),
 });
 
-export const collections = { services, posts, caseStudies, faqs };
+const projects = defineCollection({
+    loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/projects' }),
+    schema: z.object({
+        title: z.string(),
+        tagline: z.string(),
+        summary: z.string(),
+        role: z.string(),
+        tech: z.array(z.string()).default([]),
+        repoUrl: z.string().url().optional(),
+        order: z.number().default(0),
+    }),
+});
+
+export const collections = { services, posts, caseStudies, faqs, projects };

@@ -1,0 +1,26 @@
+---
+title: Homelab platform
+tagline: Running what I sell, with production habits
+summary: A Kubernetes platform run like a client environment. Helm deploys driven by Ansible, secrets synced from a single source of truth into Vault and Kubernetes, and three-pillar observability. A case study in operating discipline at lab scale.
+role: Operator
+tech: [Kubernetes, Helm, Ansible, Vault, PostgreSQL, Prometheus, Grafana, Loki, Terraform]
+order: 3
+---
+
+## The problem
+
+Consultants routinely recommend infrastructure they have never operated. I wanted every recommendation backed by the experience of running it: the upgrade that breaks, the alert that fires at 3am for nothing.
+
+## The system
+
+A k3s Kubernetes cluster running a real service fleet (source control, identity, databases, monitoring, storage) under the same rules a client environment would get.
+
+- Every service deploys through Helm charts driven by Ansible playbooks. No `kubectl apply` from a laptop. The repo is the environment.
+- Secrets have one source of truth: a password manager feeds a sync pipeline that renders them into both Ansible Vault and Kubernetes Secrets, with rotation-policy checks on a schedule. Nothing is pasted, and nothing lives in two places.
+- PostgreSQL runs under CloudNativePG, so replicas and backups are managed as code, upgrades included.
+- Prometheus and Loki feed Grafana dashboards and alerts that watch the golden signals.
+- Internal services resolve through a DNS zone generated from the same service inventory that drives deployment.
+
+## Why it matters
+
+None of this is exotic. That is the point. The discipline is the product: a lab run with production habits. Knowing the difference between a lab and production is exactly what you hire for.
