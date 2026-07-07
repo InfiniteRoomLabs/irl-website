@@ -1,0 +1,42 @@
+/* Typography for MDX-rendered project bodies and long-form page prose.
+   Scoped by .prose-irl. */
+.prose-irl {
+  font-family: var(--font-sans);
+  font-weight: 200;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--fg2);
+}
+.prose-irl h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(26px, 3vw, 36px);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--fg1);
+  margin: 2.2em 0 0.6em;
+}
+.prose-irl h2:first-child {
+  margin-top: 0;
+}
+.prose-irl strong {
+  color: var(--fg1);
+  font-weight: 500;
+}
+.prose-irl a {
+  color: var(--accent-2-hover);
+}
+.prose-irl ul {
+  padding-left: 1.2em;
+}
+.prose-irl li {
+  margin: 0.5em 0;
+}
+.prose-irl li::marker {
+  color: var(--accent);
+}
+.prose-irl code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  color: var(--fg1);
+}

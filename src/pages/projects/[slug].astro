@@ -1,0 +1,57 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHead from '../../components/PageHead.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import { NAV_LINKS } from '../../nav';
+import '../../styles/prose.css';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const d = project.data;
+---
+<BaseLayout
+  title={`${d.title} — Projects — Infinite Room Labs`}
+  description={d.summary}
+  navLinks={NAV_LINKS}
+  footerSitemapLinks={NAV_LINKS}
+  sourcePath={`src/content/projects/${project.id}.mdx`}
+>
+  <main id="main">
+    <PageHead eyebrow={`Projects · ${d.role}`} title={d.title} sub={d.tagline} />
+    <section class="px-12 py-10 max-md:px-5 max-md:py-6">
+      <div class="max-w-shell mx-auto grid grid-cols-[minmax(0,1fr)_260px] gap-14 max-md:grid-cols-1 max-md:gap-8">
+        <article class="prose-irl">
+          <Content />
+        </article>
+        <aside class="font-mono text-[11px] tracking-eyebrow uppercase text-fg-muted flex flex-col gap-5 max-md:border-t max-md:border-rule max-md:pt-6">
+          <div>
+            <b class="text-fg-2 font-medium block mb-1">Role</b>
+            {d.role}
+          </div>
+          <div>
+            <b class="text-fg-2 font-medium block mb-1">Tech</b>
+            {d.tech.join(' · ')}
+          </div>
+          {d.repoUrl && (
+            <a class="text-accent-2-hover no-underline hover:text-fg-1" href={d.repoUrl}>
+              Source ↗
+            </a>
+          )}
+          <a class="text-fg-2 no-underline hover:text-fg-1" href="/projects/">← All projects</a>
+        </aside>
+      </div>
+    </section>
+    <CTABlock title="Need this kind<br />of system?">
+      If any of this maps to a problem you have, describe it in an email.
+    </CTABlock>
+  </main>
+</BaseLayout>
