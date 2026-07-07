@@ -1,0 +1,26 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+}
+const { eyebrow = 'Next step', title } = Astro.props;
+---
+<section class="px-12 py-16 max-md:px-5 max-md:py-10">
+  <div class="max-w-shell mx-auto w-full border-t border-rule pt-10">
+    <div class="font-mono text-[11px] tracking-widest-2 text-fg-2 uppercase">{eyebrow}</div>
+    <h2
+      class="font-display font-normal text-fg-1 uppercase mt-4 leading-[0.95] tracking-[0.02em] text-[clamp(36px,5vw,64px)]"
+      set:html={title}
+    />
+    <p class="mt-5 font-sans font-extralight text-[clamp(16px,1.3vw,20px)] leading-[1.5] text-fg-2 max-w-[56ch] m-0">
+      <slot />
+    </p>
+    <a
+      href="mailto:hello@infiniteroomlabs.com?subject=Inquiry%20%5BIRL%5D"
+      class="mt-7 inline-flex items-center gap-3.5 bg-accent hover:bg-accent-hover text-fg-1 font-sans font-semibold text-sm tracking-[0.04em] uppercase px-6 py-[18px] no-underline transition-colors duration-100 ease-standard"
+    >
+      hello@infiniteroomlabs.com
+      <span aria-hidden="true">→</span>
+    </a>
+  </div>
+</section>
