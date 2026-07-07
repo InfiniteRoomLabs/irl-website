@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHead from '../components/PageHead.astro';
+import CTABlock from '../components/CTABlock.astro';
+import { NAV_LINKS } from '../nav';
+import '../styles/prose.css';
+---
+<BaseLayout
+  title="About — Infinite Room Labs"
+  description="Infinite Room Labs is a Kentucky LLC run by Wes Gilleland: DevOps and platform engineering with full-lifecycle depth, operated like a real engineering organization."
+  navLinks={NAV_LINKS}
+  footerSitemapLinks={NAV_LINKS}
+  sourcePath="src/pages/about.astro"
+>
+  <main id="main">
+    <PageHead
+      eyebrow="About"
+      title="One person.<br />A real engineering<br />operation."
+      sub="Infinite Room Labs is a Kentucky LLC operated entirely by <strong>Wes Gilleland</strong>. This page is how it works."
+    />
+
+    <div class="max-w-shell mx-auto px-12 max-md:px-5">
+
+      <section class="grid grid-cols-[280px_minmax(0,1fr)] gap-14 py-12 border-b border-rule max-md:grid-cols-1 max-md:gap-5 max-md:py-8">
+        <div>
+          <div class="font-mono text-[11px] tracking-eyebrow uppercase text-accent-2">/01 — Origin</div>
+          <h2 class="font-display font-normal text-fg-1 uppercase mt-3 leading-[0.95] text-[clamp(30px,3.5vw,44px)]">How this<br />started.</h2>
+        </div>
+        <div class="prose-irl">
+          <p>I came up through the full software lifecycle. Development, QA automation, operations, at enterprise software companies and a web agency. The pattern was the same everywhere: I could not leave a brittle system alone. Manual deploys became pipelines. Snowflake servers became Terraform. "Works on my machine" became a containerized dev environment anyone could boot with one command.</p>
+          <p><strong>Infinite Room Labs is that pattern, incorporated.</strong></p>
+        </div>
+      </section>
+
+      <section class="grid grid-cols-[280px_minmax(0,1fr)] gap-14 py-12 border-b border-rule max-md:grid-cols-1 max-md:gap-5 max-md:py-8">
+        <div>
+          <div class="font-mono text-[11px] tracking-eyebrow uppercase text-accent-2">/02 — The operation</div>
+          <h2 class="font-display font-normal text-fg-1 uppercase mt-3 leading-[0.95] text-[clamp(30px,3.5vw,44px)]">Run what<br />you sell.</h2>
+        </div>
+        <div class="prose-irl">
+          <p>Behind this site is a Kubernetes platform I operate myself. Helm deploys driven by Ansible. Secrets synced from one source of truth into Vault and the cluster. Metrics and logs on everything, with alerts that mean something. The open-source side (claudesync, agent-ops) is where agentic engineering practices get proven before they go anywhere near client work.</p>
+          <p>Every recommendation I make, I have operated. See <a href="/projects/">Projects</a> for the receipts.</p>
+        </div>
+      </section>
+
+      <div class="py-14 max-md:py-9">
+        <p class="font-display font-normal text-fg-1 uppercase leading-[1.1] tracking-[0.03em] text-[clamp(24px,3vw,40px)] max-w-[24ch] m-0">
+          "I won't pretend the homelab is production-grade. It's a lab, and you're paying me to know the difference."
+        </p>
+        <span class="font-mono text-[11px] tracking-eyebrow uppercase text-fg-muted block mt-4">— On the operation</span>
+      </div>
+
+      <section class="grid grid-cols-[280px_minmax(0,1fr)] gap-14 py-12 border-t border-rule max-md:grid-cols-1 max-md:gap-5 max-md:py-8">
+        <div>
+          <div class="font-mono text-[11px] tracking-eyebrow uppercase text-accent-2">/03 — How I work</div>
+          <h2 class="font-display font-normal text-fg-1 uppercase mt-3 leading-[0.95] text-[clamp(30px,3.5vw,44px)]">Async-first.<br />Written-over-<br />verbal.</h2>
+        </div>
+        <div class="prose-irl">
+          <p>Decisions land in documents, not meeting memories. I scope before I build, and you own everything when it is done: code, infrastructure, documentation, accounts. I build with agents. I review like I don't.</p>
+          <p>This is not a preference list. It is how I produce my best work. Clients who lean into it get unusually thorough engineering and unusually well-documented deliverables. If you need an always-on, meetings-driven collaborator, I will say so early and point you somewhere better.</p>
+          <p class="font-mono text-[12px] tracking-wider-2 uppercase">
+            <a href="https://github.com/Deathnerd" class="text-accent-2-hover no-underline hover:text-fg-1">GitHub ↗</a>
+            <span class="text-fg-muted mx-3">·</span>
+            <a href="https://www.linkedin.com/in/george-gilleland-71793bb0" class="text-accent-2-hover no-underline hover:text-fg-1">LinkedIn ↗</a>
+          </p>
+        </div>
+      </section>
+
+    </div>
+
+    <CTABlock title="Sound like your kind<br />of engineer?">
+      Start with an email. Describe the system that hurts.
+    </CTABlock>
+  </main>
+</BaseLayout>
