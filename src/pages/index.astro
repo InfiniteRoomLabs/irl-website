@@ -1,21 +1,12 @@
 ---
 import SplashLayout from '../layouts/SplashLayout.astro';
-import LogoCombo from '../components/LogoCombo.astro';
+import Nav from '../components/Nav.astro';
+import { NAV_LINKS } from '../nav';
 ---
 <SplashLayout title="DevOps & Platform Engineering Consultancy — Lexington, KY | Infinite Room Labs">
   <div class="splash flex flex-col min-h-screen bg-surface text-fg-3 font-sans antialiased">
 
-    <header class="bg-surface border-b border-rule shrink-0">
-      <div class="h-[3px] bg-gradient-bar"></div>
-      <div class="max-w-shell mx-auto w-full px-12 py-[18px] flex items-center gap-4 max-md:px-5 max-md:py-3.5">
-        <a href="/" class="inline-flex items-center no-underline">
-          <LogoCombo markSize={22} />
-        </a>
-        <span class="ml-auto font-mono text-[10px] tracking-eyebrow text-fg-muted uppercase max-md:hidden">
-          LEX, KY · ET
-        </span>
-      </div>
-    </header>
+    <Nav links={NAV_LINKS} />
 
     <main id="main" class="flex-1 flex flex-col">
       <section class="relative flex-1 px-12 pt-20 pb-16 overflow-hidden flex flex-col max-md:px-5 max-md:pt-10 max-md:pb-8">
